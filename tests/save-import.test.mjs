@@ -42,6 +42,12 @@ test('only implemented fishing is registered with its own filters and completion
   assert.equal(collection.filterEntries, collectionById('fishing').filterEntries);
 });
 
+test('every fishing-catalog entry has verified seasons', () => {
+  for (const entry of fishingCatalog.entries) {
+    assert.ok(entry.seasons?.length, `${entry.id} needs at least one season`);
+  }
+});
+
 test('a separate collection progress store does not change fishing progress', () => {
   restoreInitialProgress();
   const other = createProgressStore({ id: 'test-collection', completion: { requiredIds: ['sample'] } });
