@@ -23,7 +23,6 @@
     <main id="conteudo" class="catalog-page">
       <div class="catalog-intro">
         <h1>Catálogo de pesca</h1>
-        <p>72 itens da aba Peixes de Stardew Valley 1.6. Campos incompletos aparecem como “A verificar”. Esta coleção é diferente da conquista <em>Mestre Pescador</em>.</p>
       </div>
       <section class="save-import" aria-labelledby="save-title">
         <div>
@@ -37,49 +36,48 @@
           <p id="import-message" class="import-message" role="status" aria-live="polite" aria-atomic="true"></p>
         </form>
       </section>
-      <section class="progress-panel" aria-labelledby="progress-title">
-        <div class="progress-heading">
-          <h2 id="progress-title">Sua coleção</h2>
-          <p>Um retrato da aba Peixes da sua partida.</p>
-        </div>
-        <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
-        <div class="progress-meter" aria-hidden="true"><span id="progress-meter-value"></span></div>
-        <p id="progress-breakdown" class="progress-breakdown"></p>
-        <div class="progress-actions">
-          <div class="progress-action">
-            <button id="undo-manual" type="button" aria-describedby="undo-manual-help">Desfazer alterações manuais</button>
-            <p id="undo-manual-help">Remove ajustes manuais; mantém o save importado.</p>
+      <details class="progress-panel">
+        <summary>
+          <div class="progress-heading"><h2 id="progress-title">Sua coleção</h2></div>
+          <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
+          <div class="progress-meter" aria-hidden="true"><span id="progress-meter-value"></span></div>
+        </summary>
+        <div class="progress-details">
+          <p id="progress-breakdown" class="progress-breakdown"></p>
+          <div class="progress-actions">
+            <div class="progress-action">
+              <button id="undo-manual" type="button" aria-describedby="undo-manual-help">Desfazer alterações manuais</button>
+              <p id="undo-manual-help">Remove ajustes manuais; mantém o save importado.</p>
+            </div>
+            <div class="progress-action">
+              <button id="restore-initial" type="button" aria-describedby="restore-initial-help">Restaurar progresso inicial</button>
+              <p id="restore-initial-help">Remove o save importado e os ajustes manuais.</p>
+            </div>
+            <div class="progress-action">
+              <button id="import-another" type="button" aria-describedby="import-another-help">Importar outro save</button>
+              <p id="import-another-help">Substitui o progresso após validar outro arquivo.</p>
+            </div>
           </div>
-          <div class="progress-action">
-            <button id="restore-initial" type="button" aria-describedby="restore-initial-help">Restaurar progresso inicial</button>
-            <p id="restore-initial-help">Remove o save importado e os ajustes manuais.</p>
+          <div class="local-data-action">
+            <button id="delete-local-data" type="button" aria-describedby="delete-local-data-help">Excluir dados locais do site</button>
+            <p id="delete-local-data-help">Apaga tema e progresso deste navegador. Não altera arquivos do jogo.</p>
           </div>
-          <div class="progress-action">
-            <button id="import-another" type="button" aria-describedby="import-another-help">Importar outro save</button>
-            <p id="import-another-help">Substitui o progresso após validar outro arquivo.</p>
+          <div class="export-action">
+            <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>
+            <p id="export-progress-help">Baixa os IDs da sua coleção, incluindo ajustes locais. Não inclui dados do save.</p>
           </div>
+          <p id="action-message" class="action-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
         </div>
-        <div class="local-data-action">
-          <button id="delete-local-data" type="button" aria-describedby="delete-local-data-help">Excluir dados locais do site</button>
-          <p id="delete-local-data-help">Apaga tema e progresso deste navegador. Não altera arquivos do jogo.</p>
-        </div>
-        <div class="export-action">
-          <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>
-          <p id="export-progress-help">Baixa os IDs da sua coleção, incluindo ajustes locais. Não inclui dados do save.</p>
-        </div>
-        <p id="action-message" class="action-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
-      </section>
+      </details>
       <div class="catalog-tools" role="group" aria-label="Buscar e filtrar catálogo">
         <div class="field field-search"><label for="search">Buscar por nome</label><input id="search" class="form-control" type="search" placeholder="Ex.: Baiacu ou Pufferfish" autocomplete="off"></div>
-        <div class="field"><label for="season">Estação</label><select id="season" class="filter-control"><option value="all">Todas</option><option value="spring">Primavera</option><option value="summer">Verão</option><option value="fall">Outono</option><option value="winter">Inverno</option><option value="year-round">O ano todo</option><option value="unverified">A verificar</option></select></div>
+        <div class="field"><label for="season">Estação</label><select id="season" class="filter-control"><option value="all">Todas</option><option value="spring">Primavera</option><option value="summer">Verão</option><option value="fall">Outono</option><option value="winter">Inverno</option><option value="year-round">O ano todo</option><option value="unverified">Outros</option></select></div>
         <div class="field"><label for="method">Método</label><select id="method" class="filter-control"><option value="all">Todos</option><option value="rod">Vara de pesca</option><option value="crab-pot">Covo</option></select></div>
         <div class="field"><label for="status">Coleção</label><select id="status" class="filter-control"><option value="all">Todos</option><option value="recorded">Na coleção</option><option value="missing">Faltando</option></select></div>
       </div>
-      <p class="catalog-note">Tema e progresso ficam neste navegador, sem sincronização. O save não é armazenado.</p>
       <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
       <div id="catalog-groups" class="catalog-groups"></div>
       <p id="empty-state" class="message empty-state" hidden>Nenhum item encontrado. Ajuste a busca ou os filtros.</p>
-      <p class="catalog-source">Stardew Valley <span id="catalog-version"></span> · revisão <span id="catalog-review"></span> · <a href="docs/fishing-catalog.md">Escopo e fontes</a></p>
     </main>
   </body>
 </html>

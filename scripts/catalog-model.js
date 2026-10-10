@@ -4,7 +4,7 @@ export const seasonGroups = Object.freeze([
   ['fall', 'Outono'],
   ['winter', 'Inverno'],
   ['year-round', 'O ano todo'],
-  ['unverified', 'Estação a verificar'],
+  ['unverified', 'Outros'],
 ]);
 
 export function seasonGroupFor(entry) {

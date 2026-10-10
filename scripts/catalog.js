@@ -1,5 +1,5 @@
 import { collectionById } from './data/collections.js';
-import { isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from './progress.js';
+import { isRecorded, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from './progress.js';
 import { SaveFormatError } from './save-parser.js';
 import { progressExport, downloadProgress } from './export.js';
 
@@ -22,11 +22,11 @@ function element(tag, className, text) {
   return node;
 }
 
-function condition(list, label, value, partial = false) {
+function condition(list, label, value) {
+  if (value == null) return;
   const item = element('div', 'condition');
   item.append(element('dt', '', label));
-  item.append(element('dd', '', value ?? 'A verificar'));
-  if (partial && value !== null) item.append(element('span', 'condition-note', 'Condição parcial'));
+  item.append(element('dd', '', value));
   list.append(item);
 }
 
@@ -56,20 +56,18 @@ function card(entry) {
   const titleBlock = element('div');
   titleBlock.append(element('h3', '', entry.namePt));
   titleBlock.append(element('p', 'english-name', entry.nameEn));
-  const source = statusSource(entry.id);
   const status = element('div', 'item-status');
   status.append(element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, recorded ? 'Na coleção' : 'Falta na coleção'));
-  if (source !== 'none') status.append(element('span', 'status-source', source === 'save' ? 'Do save' : 'Marcado por você'));
   header.append(thumbnail(entry), titleBlock, status);
   article.append(header);
 
   const details = element('dl', 'conditions');
-  condition(details, 'Estação', entry.seasons ? (entry.seasons.length === 4 ? 'O ano todo' : entry.seasons.map((season) => seasonNames[season]).join(', ')) : null, entry.needsVerification.includes('seasons'));
-  condition(details, 'Local', entry.location ? (locationNames[entry.location] ?? entry.location) : null, entry.needsVerification.includes('location'));
-  condition(details, 'Horário', entry.time === 'any' ? 'Qualquer horário' : entry.time, entry.needsVerification.includes('time'));
-  condition(details, 'Clima', entry.weather ? weatherNames[entry.weather] : null, entry.needsVerification.includes('weather'));
+  condition(details, 'Estação', entry.seasons ? (entry.seasons.length === 4 ? 'O ano todo' : entry.seasons.map((season) => seasonNames[season]).join(', ')) : null);
+  condition(details, 'Local', entry.location ? (locationNames[entry.location] ?? entry.location) : null);
+  condition(details, 'Horário', entry.time === 'any' ? 'Qualquer horário' : entry.time);
+  condition(details, 'Clima', entry.weather ? weatherNames[entry.weather] : null);
   condition(details, 'Método', methodNames[entry.method]);
-  condition(details, 'Requisitos', entry.specialRequirements, entry.needsVerification.includes('specialRequirements'));
+  condition(details, 'Requisitos', entry.specialRequirements);
   article.append(details);
 
   const actions = element('div', 'item-actions');
@@ -226,6 +224,4 @@ saveForm.addEventListener('submit', async (event) => {
   }
 });
 
-document.getElementById('catalog-version').textContent = collection.gameVersion;
-document.getElementById('catalog-review').textContent = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' }).format(new Date(`${collection.reviewedOn}T00:00:00Z`));
 render();
