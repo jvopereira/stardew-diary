@@ -20,7 +20,7 @@ test('Pages source is a build-free root with an entry page', () => {
 test('root entry opens the catalog through a relative redirect', () => {
   const html = contents('index.html');
   assert.match(html, /http-equiv="refresh" content="0; url=catalogo\.html"/);
-  assert.match(html, /<a href="catalogo\.html">Abrir catálogo de pesca<\/a>/);
+  assert.match(html, /<a href="catalogo\.html">Abrir catálogo de peixes<\/a>/);
 });
 
 test('HTML and module assets resolve inside the project Pages prefix', () => {
