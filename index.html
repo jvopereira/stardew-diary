@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#173d3a">
     <meta name="description" content="Diário do Vale: um lugar para acompanhar sua coleção de pesca em Stardew Valley.">
     <title>Diário do Vale — Sua coleção de pesca</title>
+    <script src="scripts/theme-init.js"></script>
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="scripts/app.js"></script>
   </head>
@@ -16,10 +17,13 @@
         <span class="brand-mark" aria-hidden="true">✳</span>
         <span>Diário do Vale</span>
       </a>
-      <nav aria-label="Navegação principal">
-        <a href="#sobre">Sobre o diário</a>
-        <a href="#proximos-passos">O que vem por aí</a>
-      </nav>
+      <div class="header-actions">
+        <nav aria-label="Navegação principal">
+          <a href="catalogo.html">Catálogo de pesca</a>
+          <a href="#sobre">Sobre o diário</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Tema: claro</span></button>
+      </div>
     </header>
 
     <main id="conteudo">
@@ -27,8 +31,8 @@
         <div class="hero-copy">
           <p class="chapter">Um caderno para sua vida no vale</p>
           <h1 id="hero-title">Cada peixe tem sua história.</h1>
-          <p class="intro">Em breve, acompanhe a coleção de pesca de Stardew Valley em um só lugar: o que você já registrou, o que falta e onde encontrar cada peixe.</p>
-          <a class="primary-link" href="#sobre">Conheça o projeto <span aria-hidden="true">↗</span></a>
+          <p class="intro">Explore a coleção de pesca de Stardew Valley por estação. Consulte as condições conhecidas e descubra o que ainda precisa ser verificado.</p>
+          <a class="primary-link" href="catalogo.html">Explorar o catálogo <span aria-hidden="true">↗</span></a>
         </div>
         <div class="landscape" role="img" aria-label="Ilustração de um lago ao amanhecer, com montanhas, árvores e uma vara de pesca">
           <div class="sun"></div>
@@ -53,20 +57,20 @@
           <h2 id="about-title">Um lugar para lembrar o que o lago já trouxe.</h2>
         </div>
         <div class="about-text">
-          <p>O Diário do Vale está sendo preparado para organizar os itens da coleção de pesca por estação e mostrar as condições de captura de cada um.</p>
-          <p>A coleção exibida será definida com clareza no catálogo. Ela pode ser diferente dos requisitos da conquista <em>Mestre Pescador</em>.</p>
+          <p>O catálogo organiza os itens da coleção de pesca por estação e mostra as condições de captura já verificadas.</p>
+          <p>O catálogo define quais itens pertencem à aba Peixes. Essa lista pode ser diferente dos requisitos da conquista <em>Mestre Pescador</em>.</p>
         </div>
       </section>
 
       <section class="upcoming" id="proximos-passos" aria-labelledby="upcoming-title">
         <div class="upcoming-heading">
-          <p class="section-kicker">Nas próximas páginas</p>
-          <h2 id="upcoming-title">Planejado para o diário</h2>
+          <p class="section-kicker">No diário</p>
+          <h2 id="upcoming-title">Explore agora e acompanhe o que vem depois</h2>
         </div>
         <ul class="feature-list">
-          <li><span class="feature-symbol" aria-hidden="true">◌</span><div><h3>Explore a coleção</h3><p>Encontre peixes por estação, local, horário e clima.</p></div></li>
+          <li><span class="feature-symbol" aria-hidden="true">◌</span><div><h3>Explore a coleção</h3><p>Encontre os itens por estação e consulte as condições conhecidas.</p></div></li>
           <li><span class="feature-symbol" aria-hidden="true">◎</span><div><h3>Acompanhe seu progresso</h3><p>Veja o que já foi registrado e marque descobertas manualmente.</p></div></li>
-          <li><span class="feature-symbol" aria-hidden="true">⌁</span><div><h3>Importe seu save</h3><p>Leia um arquivo compatível no próprio navegador, sem enviar seu save a um servidor.</p></div></li>
+          <li><span class="feature-symbol" aria-hidden="true">⌁</span><div><h3>Importe seu save</h3><p>Leia um arquivo XML 1.6.x no próprio navegador, sem enviar seu save a um servidor.</p></div></li>
         </ul>
       </section>
     </main>

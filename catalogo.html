@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173d3a">
+    <meta name="description" content="Explore a coleção de pesca do Diário do Vale por estação, método e status.">
+    <title>Catálogo de pesca — Diário do Vale</title>
+    <script src="scripts/theme-init.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="scripts/catalog.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Diário do Vale, início"><span class="brand-mark" aria-hidden="true">✳</span><span>Diário do Vale</span></a>
+      <div class="header-actions">
+        <nav aria-label="Navegação principal"><a href="./">Início</a><a href="catalogo.html" aria-current="page">Catálogo de pesca</a></nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Tema: claro</span></button>
+      </div>
+    </header>
+    <main id="conteudo" class="catalog-page">
+      <div class="catalog-intro">
+        <p class="section-kicker">Coleção de pesca</p>
+        <h1>Os registros do vale</h1>
+        <p>Explore os 72 espaços da aba Peixes de Stardew Valley 1.6. As estações e condições mostradas são as confirmadas até agora; “A verificar” indica dados ainda incompletos.</p>
+        <p class="catalog-caveat">Este catálogo acompanha a aba Peixes, que inclui algas, geléias e criaturas de covo. Ele não mede a conquista <em>Mestre Pescador</em>.</p>
+      </div>
+      <section class="save-import" aria-labelledby="save-title">
+        <div>
+          <p class="section-kicker">Sua partida</p>
+          <h2 id="save-title">Ler um save do jogo</h2>
+          <p>Escolha o arquivo principal da pasta da partida, com nome parecido com <code>Nome_123456789</code>. O arquivo é lido somente neste navegador e nunca é enviado ou guardado.</p>
+          <p class="save-help" id="save-help">Aceitamos XML descompactado da versão 1.6.x, até 10 MiB. <code>SaveGameInfo</code>, arquivos compactados e outras versões não são aceitos. <a href="docs/save-import.md">Veja a compatibilidade e onde encontrar o save</a>.</p>
+        </div>
+        <form id="save-form" class="save-form">
+          <label for="save-file">Arquivo da partida</label>
+          <input id="save-file" type="file" aria-describedby="save-help import-message">
+          <button id="save-submit" type="submit">Importar progresso</button>
+          <p id="import-message" class="import-message" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </section>
+      <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
+      <div class="catalog-tools" role="group" aria-label="Buscar e filtrar catálogo">
+        <div class="field field-search"><label for="search">Buscar por nome</label><input id="search" class="form-control" type="search" placeholder="Ex.: Baiacu ou Pufferfish" autocomplete="off"></div>
+        <div class="field"><label for="season">Estação</label><select id="season" class="filter-control"><option value="all">Todas</option><option value="spring">Primavera</option><option value="summer">Verão</option><option value="fall">Outono</option><option value="winter">Inverno</option><option value="year-round">O ano todo</option><option value="unverified">A verificar</option></select></div>
+        <div class="field"><label for="method">Método</label><select id="method" class="filter-control"><option value="all">Todos</option><option value="rod">Vara de pesca</option><option value="crab-pot">Covo</option></select></div>
+        <div class="field"><label for="status">Status</label><select id="status" class="filter-control"><option value="all">Todos</option><option value="recorded">Registrados</option><option value="missing">Não registrados</option></select></div>
+      </div>
+      <p class="catalog-note">O progresso importado e as marcações manuais ficam somente nesta aba e somem ao recarregar a página. Alterações manuais não mudam o registro importado.</p>
+      <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
+      <div id="catalog-groups" class="catalog-groups"></div>
+      <p id="empty-state" class="message empty-state" hidden>Nenhum item corresponde à busca e aos filtros. Experimente limpar a busca ou selecionar “Todas” e “Todos”.</p>
+      <p class="catalog-source">Referência: Stardew Valley <span id="catalog-version"></span>, dados revisados em <span id="catalog-review"></span>. <a href="docs/fishing-catalog.md">Veja o escopo e as fontes do catálogo</a>.</p>
+    </main>
+    <footer class="site-footer"><span>Diário do Vale</span><span>Projeto independente para fãs de Stardew Valley.</span><span id="footer-year"></span></footer>
+  </body>
+</html>

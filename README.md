@@ -1,6 +1,6 @@
 # Diário do Vale
 
-Site estático para acompanhar coleções de Stardew Valley. Esta primeira etapa apresenta o projeto; o catálogo, o acompanhamento de progresso e a importação de saves ainda não estão disponíveis.
+Site estático para explorar a coleção de pesca de Stardew Valley e importar o progresso de um save XML 1.6.x diretamente no navegador.
 
 ## Estrutura
 
@@ -30,6 +30,18 @@ Abra `http://localhost:8000/`. Não há dependências para instalar nem etapa de
 
 Os caminhos de recursos são relativos, então a página funciona tanto em um domínio próprio quanto em um endereço de projeto (`usuario.github.io/repositorio/`).
 
-## Escopo desta etapa
+## Catálogo de pesca
 
-A página apresenta a futura coleção de pesca. Os critérios de inclusão, a versão de Stardew Valley usada como referência, as fontes, os formatos de save aceitos e as regras de privacidade serão documentados junto das respectivas funcionalidades antes de serem disponibilizadas.
+O modelo da aba Peixes e seus limites estão documentados em [docs/fishing-catalog.md](docs/fishing-catalog.md). Há campos de condições de captura pendentes de verificação; o catálogo ainda não é um guia completo.
+
+## Tema
+
+O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site segue a preferência de cores do sistema. A escolha é guardada apenas como `light` ou `dark` em `localStorage` neste navegador; se o armazenamento estiver indisponível, a alternância ainda funciona até recarregar a página.
+
+## Catálogo
+
+Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem do save importado e de alterações manuais temporárias; nada disso é salvo após recarregar a página. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
+
+## Importação de saves
+
+No catálogo, selecione o arquivo XML principal de uma partida 1.6.x e clique em **Importar progresso**. Consulte [docs/save-import.md](docs/save-import.md) para formatos, plataformas, limite de 10 MiB e privacidade. A importação é local e não persiste após recarregar a página.
