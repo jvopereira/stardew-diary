@@ -57,7 +57,24 @@ function card(entry) {
   toggle.dataset.recordId = entry.id;
   toggle.setAttribute('aria-pressed', String(recorded));
   toggle.setAttribute('aria-label', `${recorded ? 'Desmarcar' : 'Marcar'} ${entry.namePt} como registrado`);
-  const wiki = element('a', 'wiki-link', 'Ver na wiki em português');
+  const wiki = element('a', 'wiki-link', 'Wiki');
+  wiki.setAttribute('aria-label', `Abrir ${entry.namePt} na Wiki em português (nova aba)`);
+  const externalIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  externalIcon.setAttribute('viewBox', '0 0 24 24');
+  externalIcon.setAttribute('width', '16');
+  externalIcon.setAttribute('height', '16');
+  externalIcon.setAttribute('fill', 'none');
+  externalIcon.setAttribute('stroke', 'currentColor');
+  externalIcon.setAttribute('stroke-width', '2');
+  externalIcon.setAttribute('stroke-linecap', 'round');
+  externalIcon.setAttribute('stroke-linejoin', 'round');
+  externalIcon.setAttribute('aria-hidden', 'true');
+  for (const shape of ['M13 5h6v6', 'm19 5-9 9', 'M19 13v6H5V5h6']) {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', shape);
+    externalIcon.append(path);
+  }
+  wiki.append(externalIcon);
   wiki.href = `https://pt.stardewvalleywiki.com/${encodeURIComponent(entry.namePt.replaceAll(' ', '_'))}`;
   wiki.target = '_blank';
   wiki.rel = 'noopener noreferrer';

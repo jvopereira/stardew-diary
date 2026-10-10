@@ -4,7 +4,8 @@ Site estático para explorar a coleção de pesca de Stardew Valley e importar o
 
 ## Estrutura
 
-- `index.html` — conteúdo e estrutura da página.
+- `index.html` — redireciona a raiz para o catálogo.
+- `catalogo.html` — estrutura da página do catálogo.
 - `styles/main.css` — apresentação e layout responsivo.
 - `scripts/data/collections.js` — metadados das coleções (preparado para outras categorias).
 - `scripts/app.js` — comportamento da aplicação.
@@ -27,7 +28,7 @@ O repositório usa `main` como branch e mantém `index.html`, `catalogo.html` e 
 1. Envie os commits que deseja publicar com `git push origin main`. Arquivos não rastreados pelo Git não são publicados.
 2. Em [Settings → Pages do repositório](https://github.com/jvopereira/stardew-diary/settings/pages), escolha **Deploy from a branch** em **Build and deployment → Source**.
 3. Escolha **`main`** e **`/ (root)`**, depois clique em **Save**. É necessário ter permissão de administração ou manutenção no repositório para alterar essa configuração.
-4. Aguarde a implantação e abra [https://jvopereira.github.io/stardew-diary/](https://jvopereira.github.io/stardew-diary/). Confira a página inicial, o catálogo, estilos e controles. A URL só responderá após Pages estar habilitado e a implantação terminar.
+4. Aguarde a implantação e abra [https://jvopereira.github.io/stardew-diary/](https://jvopereira.github.io/stardew-diary/). A raiz abre o catálogo. Confira estilos e controles. A URL só responderá após Pages estar habilitado e a implantação terminar.
 
 Para **atualizar** o site, registre as alterações em um commit e execute `git push origin main`; Pages publica as mudanças da raiz dessa branch. Acompanhe o andamento em **Actions** ou **Settings → Pages**. Para testar antes de enviar, execute `node --test tests/*.test.mjs` e siga as instruções de servidor local acima.
 
@@ -45,7 +46,7 @@ O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site s
 
 ## Catálogo
 
-Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso e a preferência de tema deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
+Abra a raiz do site ou `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso e a preferência de tema deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
 
 **Exportar progresso em JSON** baixa os IDs atualmente registrados, incluindo ajustes manuais, com `formatVersion: 1` e `collectionId: "fishing"`. O arquivo serve como backup ou referência para transferência manual; o site ainda não importa esse JSON. Nenhum dado do save entra no arquivo exportado.
 

@@ -7,32 +7,28 @@
     <meta name="description" content="Explore a coleção de pesca do Diário do Vale por estação, método e status.">
     <title>Catálogo de pesca — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css?v=2">
+    <link rel="stylesheet" href="styles/main.css?v=3">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/catalog.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="site-header">
-      <a class="brand" href="./" aria-label="Diário do Vale, início"><span class="brand-mark" aria-hidden="true">✳</span><span>Diário do Vale</span></a>
+      <a class="brand" href="./" aria-label="Diário do Vale, catálogo"><span class="brand-mark" aria-hidden="true">✳</span><span>Diário do Vale</span></a>
       <div class="header-actions">
-        <nav aria-label="Navegação principal" data-collection-nav data-current-collection="fishing"><a href="./">Início</a></nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Tema: claro</span></button>
+        <nav aria-label="Coleções" data-collection-nav data-current-collection="fishing" hidden></nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span></button>
       </div>
     </header>
     <main id="conteudo" class="catalog-page">
       <div class="catalog-intro">
-        <p class="section-kicker">Coleção de pesca</p>
-        <h1>Os registros do vale</h1>
-        <p>Explore os 72 espaços da aba Peixes de Stardew Valley 1.6. As estações e condições mostradas são as confirmadas até agora; “A verificar” indica dados ainda incompletos.</p>
-        <p class="catalog-caveat">Este catálogo acompanha a aba Peixes, que inclui algas, geléias e criaturas de covo. Ele não mede a conquista <em>Mestre Pescador</em>.</p>
+        <h1>Catálogo de pesca</h1>
+        <p>72 itens da aba Peixes de Stardew Valley 1.6. Campos incompletos aparecem como “A verificar”. Esta coleção é diferente da conquista <em>Mestre Pescador</em>.</p>
       </div>
       <section class="save-import" aria-labelledby="save-title">
         <div>
-          <p class="section-kicker">Sua partida</p>
-          <h2 id="save-title">Ler um save do jogo</h2>
-          <p>Escolha o arquivo principal da pasta da partida, com nome parecido com <code>Nome_123456789</code>. O arquivo é lido somente neste navegador e nunca é enviado ou guardado.</p>
-          <p class="save-help" id="save-help">Aceitamos XML descompactado da versão 1.6.x, até 10 MiB. <code>SaveGameInfo</code>, arquivos compactados e outras versões não são aceitos. <a href="docs/save-import.md">Veja a compatibilidade e onde encontrar o save</a>.</p>
+          <h2 id="save-title">Importar save</h2>
+          <p class="save-help" id="save-help">Selecione o arquivo principal da partida (<code>Nome_123456789</code>). XML 1.6.x, até 10 MiB. Leitura local; o arquivo não é enviado nem salvo. <a href="docs/save-import.md">Formatos aceitos</a>.</p>
         </div>
         <form id="save-form" class="save-form">
           <label for="save-file">Arquivo da partida</label>
@@ -42,30 +38,30 @@
         </form>
       </section>
       <section class="progress-panel" aria-labelledby="progress-title">
-        <h2 id="progress-title">Seu progresso nesta aba</h2>
+        <h2 id="progress-title">Progresso</h2>
         <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
         <p id="progress-breakdown" class="progress-breakdown"></p>
         <div class="progress-actions">
           <div class="progress-action">
             <button id="undo-manual" type="button" aria-describedby="undo-manual-help">Desfazer alterações manuais</button>
-            <p id="undo-manual-help">Remove todas as marcações manuais e volta ao resultado do save importado, se houver.</p>
+            <p id="undo-manual-help">Remove ajustes manuais; mantém o save importado.</p>
           </div>
           <div class="progress-action">
             <button id="restore-initial" type="button" aria-describedby="restore-initial-help">Restaurar progresso inicial</button>
-            <p id="restore-initial-help">Remove o save importado e todas as marcações manuais. Todos os itens voltam a não registrados.</p>
+            <p id="restore-initial-help">Remove o save importado e os ajustes manuais.</p>
           </div>
           <div class="progress-action">
             <button id="import-another" type="button" aria-describedby="import-another-help">Importar outro save</button>
-            <p id="import-another-help">Escolhe outro arquivo. O progresso atual só é substituído depois que você clicar em Importar progresso e o arquivo for validado.</p>
+            <p id="import-another-help">Substitui o progresso após validar outro arquivo.</p>
           </div>
         </div>
         <div class="local-data-action">
           <button id="delete-local-data" type="button" aria-describedby="delete-local-data-help">Excluir dados locais do site</button>
-          <p id="delete-local-data-help">Apaga o tema escolhido e os IDs de progresso salvos neste navegador. Também limpa o progresso desta aba. Não altera arquivos do jogo.</p>
+          <p id="delete-local-data-help">Apaga tema e progresso deste navegador. Não altera arquivos do jogo.</p>
         </div>
         <div class="export-action">
           <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>
-          <p id="export-progress-help">Baixa os IDs atualmente registrados, incluindo ajustes locais. O arquivo não contém dados do save e não é importado por este site.</p>
+          <p id="export-progress-help">Baixa os IDs registrados, incluindo ajustes locais. Não inclui dados do save.</p>
         </div>
         <p id="action-message" class="action-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
       </section>
@@ -75,12 +71,11 @@
         <div class="field"><label for="method">Método</label><select id="method" class="filter-control"><option value="all">Todos</option><option value="rod">Vara de pesca</option><option value="crab-pot">Covo</option></select></div>
         <div class="field"><label for="status">Status</label><select id="status" class="filter-control"><option value="all">Todos</option><option value="recorded">Registrados</option><option value="missing">Não registrados</option></select></div>
       </div>
-      <p class="catalog-note">Somente o tema e os IDs de progresso são salvos neste navegador. Seu progresso não é sincronizado com outros navegadores ou dispositivos. O arquivo do save e seus dados pessoais não são armazenados.</p>
+      <p class="catalog-note">Tema e progresso ficam neste navegador, sem sincronização. O save não é armazenado.</p>
       <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
       <div id="catalog-groups" class="catalog-groups"></div>
-      <p id="empty-state" class="message empty-state" hidden>Nenhum item corresponde à busca e aos filtros. Experimente limpar a busca ou selecionar “Todas” e “Todos”.</p>
-      <p class="catalog-source">Referência: Stardew Valley <span id="catalog-version"></span>, dados revisados em <span id="catalog-review"></span>. <a href="docs/fishing-catalog.md">Veja o escopo e as fontes do catálogo</a>.</p>
+      <p id="empty-state" class="message empty-state" hidden>Nenhum item encontrado. Ajuste a busca ou os filtros.</p>
+      <p class="catalog-source">Stardew Valley <span id="catalog-version"></span> · revisão <span id="catalog-review"></span> · <a href="docs/fishing-catalog.md">Escopo e fontes</a></p>
     </main>
-    <footer class="site-footer"><span>Diário do Vale</span><span>Projeto independente para fãs de Stardew Valley.</span><span id="footer-year"></span></footer>
   </body>
 </html>
