@@ -44,6 +44,10 @@ O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site s
 
 Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso e a preferência de tema deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
 
+**Exportar progresso em JSON** baixa os IDs atualmente registrados, incluindo ajustes manuais, com `formatVersion: 1` e `collectionId: "fishing"`. O arquivo serve como backup ou referência para transferência manual; o site ainda não importa esse JSON. Nenhum dado do save entra no arquivo exportado.
+
 ## Importação de saves
 
 No catálogo, selecione o arquivo XML principal de uma partida 1.6.x e clique em **Importar progresso**. Consulte [docs/save-import.md](docs/save-import.md) para formatos, plataformas, limite de 10 MiB e privacidade. A leitura é local; o arquivo, seu XML e seus dados pessoais não são armazenados.
+
+Os resultados da revisão dos requisitos, os cenários testados e os limites da evidência estão em [docs/verification.md](docs/verification.md).

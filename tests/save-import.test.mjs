@@ -4,7 +4,9 @@ import { fishingCatalog } from '../scripts/data/fishing.js';
 import { collections, collectionById } from '../scripts/data/collections.js';
 import { fishSaveIds } from '../scripts/data/fish-save-ids.js';
 import { parseSaveXml, readSaveFile, MAX_SAVE_BYTES, SaveFormatError } from '../scripts/save-parser.js';
-import { isRecorded, statusSource, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary, loadSavedProgress, PROGRESS_STORAGE_KEY, createProgressStore } from '../scripts/progress.js';
+import { progressExport } from '../scripts/export.js';
+import { filterCatalog } from '../scripts/catalog-model.js';
+import { isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary, loadSavedProgress, PROGRESS_STORAGE_KEY, createProgressStore } from '../scripts/progress.js';
 
 const stored = new Map();
 globalThis.localStorage = {
@@ -73,6 +75,25 @@ test('rejects empty, oversized, and compressed files before parsing', async () =
   await assert.rejects(readSaveFile({name:'farm_1',size:0,text:async()=>''}), SaveFormatError);
   await assert.rejects(readSaveFile({name:'farm_1',size:MAX_SAVE_BYTES+1,text:async()=>''}), SaveFormatError);
   await assert.rejects(readSaveFile({name:'backup.zip',size:100,text:async()=>''}), SaveFormatError);
+});
+
+test('accepts known IDs alongside unknown mod IDs and ignores zero counts', () => {
+  parsedDocument = save({ items: [['(O)128', '1'], ['UnknownModFish', '2'], ['SeaJelly', '0']] });
+  assert.deepEqual(parseSaveXml('<SaveGame/>').recordedIds, new Set(['pufferfish']));
+});
+
+test('rejects malformed fish counts and missing player records', () => {
+  parsedDocument = save({ items: [['(O)128', 'not-a-number']] });
+  assert.throws(() => parseSaveXml('<SaveGame/>'), SaveFormatError);
+  parsedDocument = { documentElement: node('SaveGame', '', [node('gameVersion', '1.6.15')]), doctype: null, querySelector: () => null };
+  assert.throws(() => parseSaveXml('<SaveGame/>'), SaveFormatError);
+});
+
+test('season, method, status, and name filters combine', () => {
+  const entries = fishingCatalog.entries;
+  const filtered = filterCatalog(entries, { search: 'gobi', season: 'year-round', method: 'rod', status: 'recorded' }, new Set(['goby']));
+  assert.deepEqual(filtered.map((entry) => entry.id), ['goby']);
+  assert.equal(filterCatalog(entries, { season: 'spring', method: 'crab-pot' }, new Set()).length, 0);
 });
 
 test('failed parse leaves progress unchanged; valid replacement clears manual changes', () => {
@@ -149,5 +170,16 @@ test('rejects unknown stored identifiers without replacing current progress', ()
   stored.set(PROGRESS_STORAGE_KEY, JSON.stringify({ v: 1, base: ['player-name'], add: [], remove: [] }));
   assert.equal(loadSavedProgress(), false);
   assert.equal(isRecorded('goby'), true);
+  restoreInitialProgress();
+});
+
+test('exports effective IDs with a format version and no save details', () => {
+  restoreInitialProgress();
+  replaceImportedProgress(new Set(['pufferfish']), '1.6.15');
+  toggleManual('pufferfish');
+  toggleManual('goby');
+  const data = progressExport(collectionById('fishing'), recordedIdSet(collectionById('fishing').completion.requiredIds));
+  assert.deepEqual(data, { formatVersion: 1, collectionId: 'fishing', recordedIds: ['goby'] });
+  assert.equal(JSON.stringify(data).includes('1.6.15'), false);
   restoreInitialProgress();
 });

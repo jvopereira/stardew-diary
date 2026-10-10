@@ -8,7 +8,7 @@ O catálogo contém os **72 espaços da aba Peixes em Coleções** da versão 1.
 
 Ficam **fora** deste catálogo: peixes da missão *Família Estendida* de Qi (Legend II, Ms. Angler, Glacierfish Jr., Son of Crimsonfish e Radioactive Carp), lixo pescado, itens da praia que não têm espaço na aba e peixes de mods. O catálogo não é uma lista de espécies biológicas: algas e geléias aparecem porque a aba do jogo as inclui.
 
-A porcentagem futura do Diário do Vale medirá somente os espaços desta aba. **Ela não representa a conquista Mestre Pescador (*Master Angler*)**. A conquista usa regras próprias para capturas e não exige os peixes da missão *Família Estendida*; portanto, o site não deve inferir a conquista apenas da porcentagem do catálogo.
+A porcentagem do Diário do Vale mede somente os espaços desta aba, com arredondamento ao inteiro mais próximo. **Ela não representa a conquista Mestre Pescador (*Master Angler*)**. A conquista usa regras próprias para capturas e não exige os peixes da missão *Família Estendida*; portanto, o site não infere a conquista apenas da porcentagem do catálogo.
 
 ## Modelo e estado de verificação
 

@@ -2,6 +2,10 @@
 
 Revisado em 2026-10-09. O leitor aceita **XML descompactado com `<SaveGame>`, `<gameVersion>1.6</gameVersion>` ou `<gameVersion>1.6.x</gameVersion>`, `<player>` e `<fishCaught>`**. O limite é **10 MiB** por arquivo. A versão 1.6 é a linha de referência do catálogo; a estrutura de `fishCaught` e suas chaves foi conferida no código do Stardew Checkup. Patches futuros podem mudar a estrutura e falharão na validação se não seguirem esse formato.
 
+## Verificação e limites
+
+Os testes automatizados e a revisão no navegador usam **arquivos XML sintéticos** que reproduzem a estrutura esperada, incluindo um exemplo com `gameVersion` 1.6.15. Foram exercitados arquivos válidos, versões incompatíveis, XML malformado, campos ausentes, identificadores desconhecidos, declarações `DOCTYPE`, arquivos compactados por extensão e arquivos acima do limite. **Nenhum save real exportado do jogo ou dispositivo específico foi usado nos testes deste projeto.** Por isso, Windows, macOS, Linux, Android e iOS são origens documentadas do XML, não plataformas validadas de ponta a ponta pelo site. A compatibilidade efetiva depende da estrutura do arquivo selecionado. O parser XML do navegador trabalha na thread da página; em arquivos próximos de 10 MiB, dispositivos lentos podem apresentar uma pausa durante a leitura e validação.
+
 ## Qual arquivo selecionar
 
 Na pasta da partida, selecione o arquivo principal com nome parecido com `Nome_123456789` (geralmente sem extensão), **não** `SaveGameInfo`. O jogo precisa de ambos para carregar a partida, mas esta página lê apenas o arquivo principal. A pasta costuma estar em:

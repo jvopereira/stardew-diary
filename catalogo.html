@@ -7,7 +7,7 @@
     <meta name="description" content="Explore a coleção de pesca do Diário do Vale por estação, método e status.">
     <title>Catálogo de pesca — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?v=2">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/catalog.js"></script>
   </head>
@@ -62,6 +62,10 @@
         <div class="local-data-action">
           <button id="delete-local-data" type="button" aria-describedby="delete-local-data-help">Excluir dados locais do site</button>
           <p id="delete-local-data-help">Apaga o tema escolhido e os IDs de progresso salvos neste navegador. Também limpa o progresso desta aba. Não altera arquivos do jogo.</p>
+        </div>
+        <div class="export-action">
+          <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>
+          <p id="export-progress-help">Baixa os IDs atualmente registrados, incluindo ajustes locais. O arquivo não contém dados do save e não é importado por este site.</p>
         </div>
         <p id="action-message" class="action-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
       </section>

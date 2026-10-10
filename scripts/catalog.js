@@ -1,6 +1,7 @@
 import { collectionById } from './data/collections.js';
 import { isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from './progress.js';
 import { SaveFormatError } from './save-parser.js';
+import { progressExport, downloadProgress } from './export.js';
 
 const collection = collectionById('fishing');
 const entries = collection.entries;
@@ -87,7 +88,8 @@ function render() {
   count.textContent = `${filtered.length} de ${entries.length} itens encontrados`;
   empty.hidden = filtered.length > 0;
   const progress = progressSummary(collection.completion.requiredIds);
-  document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total}.`;
+  const percentage = progress.total ? Math.round(progress.recorded / progress.total * 100) : 0;
+  document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total} (${percentage}%).`;
   document.getElementById('progress-breakdown').textContent = progress.hasImportedBaseline
     ? `Base importada${progress.importedVersion ? ` do save ${progress.importedVersion}` : ''}: ${progress.imported} registrados. Ajustes locais: ${progress.manualChanges}.`
     : `Sem save importado. Ajustes locais: ${progress.manualChanges}.`;
@@ -136,6 +138,15 @@ document.getElementById('restore-initial').addEventListener('click', () => {
 document.getElementById('import-another').addEventListener('click', () => {
   actionMessage.textContent = 'Escolha outro arquivo e clique em Importar progresso. O progresso atual será mantido até a validação terminar.';
   saveFile.click();
+});
+document.getElementById('export-progress').addEventListener('click', () => {
+  try {
+    downloadProgress(progressExport(collection, recordedIdSet(collection.completion.requiredIds)));
+    actionMessage.textContent = 'Progresso atual exportado em JSON. O arquivo contém somente IDs do catálogo.';
+  } catch {
+    actionMessage.textContent = 'Não foi possível baixar o JSON neste navegador. O progresso atual foi mantido.';
+  }
+  actionMessage.focus();
 });
 document.getElementById('delete-local-data').addEventListener('click', () => {
   const progressDeleted = restoreInitialProgress();
