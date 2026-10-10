@@ -22,13 +22,16 @@ Abra `http://localhost:8000/`. Não há dependências para instalar nem etapa de
 
 ## Publicar no GitHub Pages
 
-1. Envie os arquivos para a branch que deseja publicar (por exemplo, `main`).
-2. No repositório do GitHub, abra **Settings → Pages**.
-3. Em **Build and deployment**, escolha **Deploy from a branch**.
-4. Selecione a branch e a pasta **/ (root)**, depois salve.
-5. Aguarde a URL indicada na página de configuração. Atualizações na branch publicada serão implantadas automaticamente.
+O repositório usa `main` como branch e mantém `index.html`, `catalogo.html` e `.nojekyll` na raiz. A fonte de publicação correspondente é **Deploy from a branch → `main` → `/ (root)`**. Não é necessário workflow, etapa de build, backend, segredo ou serviço adicional.
 
-Os caminhos de recursos são relativos, então a página funciona tanto em um domínio próprio quanto em um endereço de projeto (`usuario.github.io/repositorio/`).
+1. Envie os commits que deseja publicar com `git push origin main`. Arquivos não rastreados pelo Git não são publicados.
+2. Em [Settings → Pages do repositório](https://github.com/jvopereira/stardew-diary/settings/pages), escolha **Deploy from a branch** em **Build and deployment → Source**.
+3. Escolha **`main`** e **`/ (root)`**, depois clique em **Save**. É necessário ter permissão de administração ou manutenção no repositório para alterar essa configuração.
+4. Aguarde a implantação e abra [https://jvopereira.github.io/stardew-diary/](https://jvopereira.github.io/stardew-diary/). Confira a página inicial, o catálogo, estilos e controles. A URL só responderá após Pages estar habilitado e a implantação terminar.
+
+Para **atualizar** o site, registre as alterações em um commit e execute `git push origin main`; Pages publica as mudanças da raiz dessa branch. Acompanhe o andamento em **Actions** ou **Settings → Pages**. Para testar antes de enviar, execute `node --test tests/*.test.mjs` e siga as instruções de servidor local acima.
+
+Os caminhos internos são relativos, então os recursos funcionam sob o prefixo `/stardew-diary/` do endereço de projeto e em um domínio próprio. `.nojekyll` mantém os arquivos estáticos sem processamento Jekyll.
 
 ## Catálogo de pesca
 
