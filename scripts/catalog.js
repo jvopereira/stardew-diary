@@ -57,8 +57,10 @@ function card(entry) {
   titleBlock.append(element('h3', '', entry.namePt));
   titleBlock.append(element('p', 'english-name', entry.nameEn));
   const source = statusSource(entry.id);
-  const statusText = `${recorded ? 'Registrado' : 'Não registrado'}${source === 'none' ? '' : ` · ${source === 'save' ? 'save importado' : 'ajuste local'}`}`;
-  header.append(thumbnail(entry), titleBlock, element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, statusText));
+  const status = element('div', 'item-status');
+  status.append(element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, recorded ? 'Na coleção' : 'Falta na coleção'));
+  if (source !== 'none') status.append(element('span', 'status-source', source === 'save' ? 'Do save' : 'Marcado por você'));
+  header.append(thumbnail(entry), titleBlock, status);
   article.append(header);
 
   const details = element('dl', 'conditions');
@@ -71,11 +73,11 @@ function card(entry) {
   article.append(details);
 
   const actions = element('div', 'item-actions');
-  const toggle = element('button', 'record-toggle', recorded ? 'Desmarcar registro' : 'Marcar como registrado');
+  const toggle = element('button', 'record-toggle', recorded ? 'Remover da coleção' : 'Adicionar à coleção');
   toggle.type = 'button';
   toggle.dataset.recordId = entry.id;
   toggle.setAttribute('aria-pressed', String(recorded));
-  toggle.setAttribute('aria-label', `${recorded ? 'Desmarcar' : 'Marcar'} ${entry.namePt} como registrado`);
+  toggle.setAttribute('aria-label', `${recorded ? 'Remover' : 'Adicionar'} ${entry.namePt} ${recorded ? 'da' : 'à'} coleção`);
   const wiki = element('a', 'wiki-link', 'Wiki');
   wiki.setAttribute('aria-label', `Abrir ${entry.namePt} na Wiki em português (nova aba)`);
   const externalIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -125,9 +127,10 @@ function render() {
   empty.hidden = filtered.length > 0;
   const progress = progressSummary(collection.completion.requiredIds);
   const percentage = progress.total ? Math.round(progress.recorded / progress.total * 100) : 0;
-  document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total} (${percentage}%).`;
+  document.getElementById('progress-summary').textContent = `${progress.recorded} na coleção · faltam ${progress.missing} de ${progress.total}`;
+  document.getElementById('progress-meter-value').style.inlineSize = `${percentage}%`;
   document.getElementById('progress-breakdown').textContent = progress.hasImportedBaseline
-    ? `Base importada${progress.importedVersion ? ` do save ${progress.importedVersion}` : ''}: ${progress.imported} registrados. Ajustes locais: ${progress.manualChanges}.`
+    ? `Do save${progress.importedVersion ? ` ${progress.importedVersion}` : ''}: ${progress.imported} itens na coleção. Ajustes manuais: ${progress.manualChanges}.`
     : `Sem save importado. Ajustes locais: ${progress.manualChanges}.`;
   document.getElementById('undo-manual').disabled = progress.manualChanges === 0;
   document.getElementById('restore-initial').disabled = !progress.hasImportedBaseline && progress.manualChanges === 0;

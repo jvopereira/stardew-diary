@@ -7,7 +7,7 @@
     <meta name="description" content="Explore a coleção de pesca do Diário do Vale por estação, método e status.">
     <title>Catálogo de pesca — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css?v=3">
+    <link rel="stylesheet" href="styles/main.css?v=4">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/catalog.js"></script>
   </head>
@@ -38,8 +38,12 @@
         </form>
       </section>
       <section class="progress-panel" aria-labelledby="progress-title">
-        <h2 id="progress-title">Progresso</h2>
+        <div class="progress-heading">
+          <h2 id="progress-title">Sua coleção</h2>
+          <p>Um retrato da aba Peixes da sua partida.</p>
+        </div>
         <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
+        <div class="progress-meter" aria-hidden="true"><span id="progress-meter-value"></span></div>
         <p id="progress-breakdown" class="progress-breakdown"></p>
         <div class="progress-actions">
           <div class="progress-action">
@@ -61,7 +65,7 @@
         </div>
         <div class="export-action">
           <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>
-          <p id="export-progress-help">Baixa os IDs registrados, incluindo ajustes locais. Não inclui dados do save.</p>
+          <p id="export-progress-help">Baixa os IDs da sua coleção, incluindo ajustes locais. Não inclui dados do save.</p>
         </div>
         <p id="action-message" class="action-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
       </section>
@@ -69,7 +73,7 @@
         <div class="field field-search"><label for="search">Buscar por nome</label><input id="search" class="form-control" type="search" placeholder="Ex.: Baiacu ou Pufferfish" autocomplete="off"></div>
         <div class="field"><label for="season">Estação</label><select id="season" class="filter-control"><option value="all">Todas</option><option value="spring">Primavera</option><option value="summer">Verão</option><option value="fall">Outono</option><option value="winter">Inverno</option><option value="year-round">O ano todo</option><option value="unverified">A verificar</option></select></div>
         <div class="field"><label for="method">Método</label><select id="method" class="filter-control"><option value="all">Todos</option><option value="rod">Vara de pesca</option><option value="crab-pot">Covo</option></select></div>
-        <div class="field"><label for="status">Status</label><select id="status" class="filter-control"><option value="all">Todos</option><option value="recorded">Registrados</option><option value="missing">Não registrados</option></select></div>
+        <div class="field"><label for="status">Coleção</label><select id="status" class="filter-control"><option value="all">Todos</option><option value="recorded">Na coleção</option><option value="missing">Faltando</option></select></div>
       </div>
       <p class="catalog-note">Tema e progresso ficam neste navegador, sem sincronização. O save não é armazenado.</p>
       <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
