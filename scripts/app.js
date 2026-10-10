@@ -4,10 +4,18 @@ import { collections } from './data/collections.js';
 const year = document.querySelector('#footer-year');
 if (year) year.textContent = String(new Date().getFullYear());
 
-// Keep the first collection registered while its catalog and tracker are built.
-const [firstCollection] = collections;
-document.documentElement.dataset.firstCollection = firstCollection.id;
+for (const nav of document.querySelectorAll('[data-collection-nav]')) {
+  const current = nav.dataset.currentCollection;
+  for (const collection of collections) {
+    const link = document.createElement('a');
+    link.href = collection.href;
+    link.textContent = collection.label;
+    if (collection.id === current) link.setAttribute('aria-current', 'page');
+    nav.append(link);
+  }
+}
 
+const THEME_STORAGE_KEY = 'diario-do-vale-theme';
 const themeToggle = document.querySelector('#theme-toggle');
 const themeColor = document.querySelector('meta[name="theme-color"]');
 
@@ -27,5 +35,9 @@ applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light')
 themeToggle?.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   applyTheme(next);
-  try { localStorage.setItem('diario-do-vale-theme', next); } catch { /* The toggle still works for this visit. */ }
+  try { localStorage.setItem(THEME_STORAGE_KEY, next); } catch { /* The toggle still works for this visit. */ }
+});
+
+window.addEventListener('diario:reset-theme', () => {
+  applyTheme(window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 });

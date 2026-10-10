@@ -34,14 +34,16 @@ Os caminhos de recursos são relativos, então a página funciona tanto em um do
 
 O modelo da aba Peixes e seus limites estão documentados em [docs/fishing-catalog.md](docs/fishing-catalog.md). Há campos de condições de captura pendentes de verificação; o catálogo ainda não é um guia completo.
 
+O registro de coleções em `scripts/data/collections.js` contém apenas categorias implementadas e alimenta a navegação. Para acrescentar outra coleção, veja [docs/adding-collections.md](docs/adding-collections.md); a lógica de pesca permanece isolada.
+
 ## Tema
 
 O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site segue a preferência de cores do sistema. A escolha é guardada apenas como `light` ou `dark` em `localStorage` neste navegador; se o armazenamento estiver indisponível, a alternância ainda funciona até recarregar a página.
 
 ## Catálogo
 
-Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados; nada disso é salvo após recarregar a página. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
+Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso e a preferência de tema deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
 
 ## Importação de saves
 
-No catálogo, selecione o arquivo XML principal de uma partida 1.6.x e clique em **Importar progresso**. Consulte [docs/save-import.md](docs/save-import.md) para formatos, plataformas, limite de 10 MiB e privacidade. A importação é local e não persiste após recarregar a página.
+No catálogo, selecione o arquivo XML principal de uma partida 1.6.x e clique em **Importar progresso**. Consulte [docs/save-import.md](docs/save-import.md) para formatos, plataformas, limite de 10 MiB e privacidade. A leitura é local; o arquivo, seu XML e seus dados pessoais não são armazenados.

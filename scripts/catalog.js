@@ -1,14 +1,14 @@
-import { fishingCatalog } from './data/fishing.js';
-import { filterCatalog, seasonGroupFor, seasonGroups } from './catalog-model.js';
+import { collectionById } from './data/collections.js';
 import { isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from './progress.js';
-import { readSaveFile, SaveFormatError } from './save-parser.js';
+import { SaveFormatError } from './save-parser.js';
 
-const entries = fishingCatalog.entries;
-const controls = Object.fromEntries(['search', 'season', 'method', 'status'].map((id) => [id, document.getElementById(id)]));
+const collection = collectionById('fishing');
+const entries = collection.entries;
+const controls = Object.fromEntries(collection.filters.map((id) => [id, document.getElementById(id)]));
 const groups = document.getElementById('catalog-groups');
 const count = document.getElementById('result-count');
 const empty = document.getElementById('empty-state');
-const seasonNames = Object.fromEntries(seasonGroups);
+const seasonNames = Object.fromEntries(collection.grouping.groups);
 const methodNames = { rod: 'Vara de pesca', 'crab-pot': 'Covo' };
 const weatherNames = { sunny: 'Ensolarado', rainy: 'Chuvoso', any: 'Qualquer clima' };
 const locationNames = { Ocean: 'Oceano', River: 'Rio', 'River; mountain lake': 'Rio; Lago da Montanha' };
@@ -66,11 +66,11 @@ function card(entry) {
 }
 
 function render() {
-  const filtered = filterCatalog(entries, Object.fromEntries(Object.entries(controls).map(([key, control]) => [key, control.value])), recordedIdSet(entries.map((entry) => entry.id)));
+  const filtered = collection.filterEntries(entries, Object.fromEntries(Object.entries(controls).map(([key, control]) => [key, control.value])), recordedIdSet(collection.completion.requiredIds));
   groups.replaceChildren();
   const fragment = document.createDocumentFragment();
-  for (const [key, title] of seasonGroups) {
-    const matches = filtered.filter((entry) => seasonGroupFor(entry).includes(key));
+  for (const [key, title] of collection.grouping.groups) {
+    const matches = filtered.filter((entry) => collection.grouping.forEntry(entry).includes(key));
     if (!matches.length) continue;
     const section = element('section', 'season-section');
     section.setAttribute('aria-labelledby', `group-${key}`);
@@ -86,14 +86,14 @@ function render() {
   groups.append(fragment);
   count.textContent = `${filtered.length} de ${entries.length} itens encontrados`;
   empty.hidden = filtered.length > 0;
-  const progress = progressSummary(entries.map((entry) => entry.id));
+  const progress = progressSummary(collection.completion.requiredIds);
   document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total}.`;
-  document.getElementById('progress-breakdown').textContent = progress.importedVersion
-    ? `Base do save ${progress.importedVersion}: ${progress.imported} registrados. Ajustes manuais: ${progress.manualChanges}.`
-    : `Sem save importado. Ajustes manuais: ${progress.manualChanges}.`;
+  document.getElementById('progress-breakdown').textContent = progress.hasImportedBaseline
+    ? `Base importada${progress.importedVersion ? ` do save ${progress.importedVersion}` : ''}: ${progress.imported} registrados. Ajustes locais: ${progress.manualChanges}.`
+    : `Sem save importado. Ajustes locais: ${progress.manualChanges}.`;
   document.getElementById('undo-manual').disabled = progress.manualChanges === 0;
-  document.getElementById('restore-initial').disabled = !progress.importedVersion && progress.manualChanges === 0;
-  document.getElementById('import-another').disabled = !progress.importedVersion;
+  document.getElementById('restore-initial').disabled = !progress.hasImportedBaseline && progress.manualChanges === 0;
+  document.getElementById('import-another').disabled = !progress.hasImportedBaseline;
 }
 
 for (const control of Object.values(controls)) control.addEventListener(control === controls.search ? 'input' : 'change', render);
@@ -101,8 +101,8 @@ groups.addEventListener('click', (event) => {
   const button = event.target.closest('button[data-record-id]');
   if (!button || !groups.contains(button)) return;
   const id = button.dataset.recordId;
-  toggleManual(id);
-  actionMessage.textContent = '';
+  const saved = toggleManual(id);
+  actionMessage.textContent = saved ? '' : 'Ajuste aplicado nesta aba, mas não foi possível salvá-lo neste navegador.';
   render();
   const replacement = [...groups.querySelectorAll('button[data-record-id]')].find((candidate) => candidate.dataset.recordId === id);
   (replacement ?? controls.status).focus();
@@ -115,23 +115,44 @@ const importMessage = document.getElementById('import-message');
 const actionMessage = document.getElementById('action-message');
 
 document.getElementById('undo-manual').addEventListener('click', () => {
-  undoManualChanges();
+  const saved = undoManualChanges();
   render();
-  actionMessage.textContent = 'Alterações manuais removidas. O progresso voltou à base do save, se houver.';
+  actionMessage.textContent = saved
+    ? 'Alterações manuais removidas. O progresso voltou à base do save, se houver.'
+    : 'Alterações manuais removidas nesta aba, mas não foi possível atualizar os dados salvos.';
   actionMessage.focus();
 });
 document.getElementById('restore-initial').addEventListener('click', () => {
-  restoreInitialProgress();
+  const saved = restoreInitialProgress();
   saveFile.value = '';
   saveFile.removeAttribute('aria-invalid');
   importMessage.textContent = '';
   render();
-  actionMessage.textContent = 'Progresso inicial restaurado. Save importado e alterações manuais removidos.';
+  actionMessage.textContent = saved
+    ? 'Progresso inicial restaurado. Save importado e alterações manuais removidos.'
+    : 'Progresso limpo nesta aba, mas não foi possível remover os dados salvos neste navegador.';
   actionMessage.focus();
 });
 document.getElementById('import-another').addEventListener('click', () => {
   actionMessage.textContent = 'Escolha outro arquivo e clique em Importar progresso. O progresso atual será mantido até a validação terminar.';
   saveFile.click();
+});
+document.getElementById('delete-local-data').addEventListener('click', () => {
+  const progressDeleted = restoreInitialProgress();
+  let themeDeleted = false;
+  try {
+    localStorage.removeItem('diario-do-vale-theme');
+    themeDeleted = true;
+  } catch { /* Report below without claiming deletion. */ }
+  window.dispatchEvent(new Event('diario:reset-theme'));
+  saveFile.value = '';
+  saveFile.removeAttribute('aria-invalid');
+  importMessage.textContent = '';
+  render();
+  actionMessage.textContent = progressDeleted && themeDeleted
+    ? 'Dados locais do site excluídos. Os arquivos do jogo não foram alterados.'
+    : 'Progresso limpo nesta aba, mas não foi possível confirmar a exclusão dos dados salvos neste navegador.';
+  actionMessage.focus();
 });
 saveForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -140,9 +161,9 @@ saveForm.addEventListener('submit', async (event) => {
   saveFile.removeAttribute('aria-invalid');
   importMessage.textContent = 'Lendo o arquivo neste navegador…';
   try {
-    const result = await readSaveFile(saveFile.files[0]);
-    replaceImportedProgress(result.recordedIds, result.version);
-    actionMessage.textContent = '';
+    const result = await collection.importSave(saveFile.files[0]);
+    const saved = replaceImportedProgress(result.recordedIds, result.version);
+    actionMessage.textContent = saved ? '' : 'Importação aplicada nesta aba, mas não foi possível salvar os IDs de progresso neste navegador.';
     render();
     importMessage.textContent = `Save ${result.version} importado: ${result.recordedIds.size} itens encontrados no catálogo.`;
   } catch (error) {
@@ -155,6 +176,6 @@ saveForm.addEventListener('submit', async (event) => {
   }
 });
 
-document.getElementById('catalog-version').textContent = fishingCatalog.gameVersion;
-document.getElementById('catalog-review').textContent = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' }).format(new Date(`${fishingCatalog.reviewedOn}T00:00:00Z`));
+document.getElementById('catalog-version').textContent = collection.gameVersion;
+document.getElementById('catalog-review').textContent = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' }).format(new Date(`${collection.reviewedOn}T00:00:00Z`));
 render();
