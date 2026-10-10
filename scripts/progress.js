@@ -22,6 +22,17 @@ export function toggleManual(id) {
   else manualOverrides.set(id, next);
 }
 
+export function undoManualChanges() {
+  manualOverrides.clear();
+}
+
+// Return to the empty state shown when the catalog first opens.
+export function restoreInitialProgress() {
+  importedIds = new Set();
+  importedVersion = null;
+  manualOverrides.clear();
+}
+
 // Call only after a complete, validated parse. No file or XML is retained.
 export function replaceImportedProgress(ids, version) {
   importedIds = new Set(ids);
@@ -31,5 +42,13 @@ export function replaceImportedProgress(ids, version) {
 
 export function progressSummary(allIds) {
   const recorded = allIds.filter(isRecorded).length;
-  return { recorded, missing: allIds.length - recorded, total: allIds.length, importedVersion };
+  const imported = allIds.filter((id) => importedIds.has(id)).length;
+  return {
+    recorded,
+    missing: allIds.length - recorded,
+    total: allIds.length,
+    imported,
+    manualChanges: manualOverrides.size,
+    importedVersion,
+  };
 }

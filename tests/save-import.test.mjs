@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { fishingCatalog } from '../scripts/data/fishing.js';
 import { fishSaveIds } from '../scripts/data/fish-save-ids.js';
 import { parseSaveXml, readSaveFile, MAX_SAVE_BYTES, SaveFormatError } from '../scripts/save-parser.js';
-import { isRecorded, toggleManual, replaceImportedProgress, progressSummary } from '../scripts/progress.js';
+import { isRecorded, statusSource, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from '../scripts/progress.js';
 
 function node(localName, textContent = '', children = []) {
   return { localName, namespaceURI: null, textContent, children };
@@ -59,4 +59,39 @@ test('failed parse leaves progress unchanged; valid replacement clears manual ch
   assert.equal(isRecorded('goby'), false);
   assert.equal(isRecorded('sea-jelly'), true);
   assert.equal(isRecorded('pufferfish'), false);
+});
+
+
+test('manual adjustments can be undone without replacing the imported baseline', () => {
+  restoreInitialProgress();
+  replaceImportedProgress(new Set(['pufferfish']), '1.6.15');
+  toggleManual('pufferfish');
+  toggleManual('goby');
+  assert.equal(isRecorded('pufferfish'), false);
+  assert.equal(isRecorded('goby'), true);
+  assert.equal(statusSource('goby'), 'manual');
+  assert.deepEqual(progressSummary(['pufferfish', 'goby']), {
+    recorded: 1, missing: 1, total: 2, imported: 1, manualChanges: 2, importedVersion: '1.6.15',
+  });
+  undoManualChanges();
+  assert.equal(isRecorded('pufferfish'), true);
+  assert.equal(isRecorded('goby'), false);
+  assert.equal(statusSource('pufferfish'), 'save');
+  assert.equal(progressSummary(['pufferfish', 'goby']).manualChanges, 0);
+});
+
+test('restore returns to the empty initial state and a new import replaces the old baseline', () => {
+  restoreInitialProgress();
+  replaceImportedProgress(new Set(['pufferfish']), '1.6.15');
+  toggleManual('goby');
+  replaceImportedProgress(new Set(['sea-jelly']), '1.6.15');
+  assert.equal(isRecorded('pufferfish'), false);
+  assert.equal(isRecorded('goby'), false);
+  assert.equal(isRecorded('sea-jelly'), true);
+  assert.equal(progressSummary(['pufferfish','goby','sea-jelly']).manualChanges, 0);
+  restoreInitialProgress();
+  assert.deepEqual(progressSummary(['pufferfish','goby','sea-jelly']), {
+    recorded: 0, missing: 3, total: 3, imported: 0, manualChanges: 0, importedVersion: null,
+  });
+  assert.equal(statusSource('sea-jelly'), 'none');
 });

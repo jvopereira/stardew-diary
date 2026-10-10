@@ -1,6 +1,6 @@
 import { fishingCatalog } from './data/fishing.js';
 import { filterCatalog, seasonGroupFor, seasonGroups } from './catalog-model.js';
-import { isRecorded, statusSource, recordedIdSet, toggleManual, replaceImportedProgress, progressSummary } from './progress.js';
+import { isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } from './progress.js';
 import { readSaveFile, SaveFormatError } from './save-parser.js';
 
 const entries = fishingCatalog.entries;
@@ -37,7 +37,7 @@ function card(entry) {
   titleBlock.append(element('h3', '', entry.namePt));
   titleBlock.append(element('p', 'english-name', entry.nameEn));
   const source = statusSource(entry.id);
-  const statusText = `${recorded ? 'Registrado' : 'Não registrado'}${source === 'none' ? '' : ` · ${source === 'save' ? 'save' : 'manual'}`}`;
+  const statusText = `${recorded ? 'Registrado' : 'Não registrado'}${source === 'none' ? '' : ` · ${source === 'save' ? 'save importado' : 'ajuste local'}`}`;
   header.append(titleBlock, element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, statusText));
   article.append(header);
 
@@ -87,7 +87,13 @@ function render() {
   count.textContent = `${filtered.length} de ${entries.length} itens encontrados`;
   empty.hidden = filtered.length > 0;
   const progress = progressSummary(entries.map((entry) => entry.id));
-  document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total}${progress.importedVersion ? ` · save ${progress.importedVersion}` : ' · sem save importado'}.`;
+  document.getElementById('progress-summary').textContent = `${progress.recorded} registrados, ${progress.missing} faltando de ${progress.total}.`;
+  document.getElementById('progress-breakdown').textContent = progress.importedVersion
+    ? `Base do save ${progress.importedVersion}: ${progress.imported} registrados. Ajustes manuais: ${progress.manualChanges}.`
+    : `Sem save importado. Ajustes manuais: ${progress.manualChanges}.`;
+  document.getElementById('undo-manual').disabled = progress.manualChanges === 0;
+  document.getElementById('restore-initial').disabled = !progress.importedVersion && progress.manualChanges === 0;
+  document.getElementById('import-another').disabled = !progress.importedVersion;
 }
 
 for (const control of Object.values(controls)) control.addEventListener(control === controls.search ? 'input' : 'change', render);
@@ -96,6 +102,7 @@ groups.addEventListener('click', (event) => {
   if (!button || !groups.contains(button)) return;
   const id = button.dataset.recordId;
   toggleManual(id);
+  actionMessage.textContent = '';
   render();
   const replacement = [...groups.querySelectorAll('button[data-record-id]')].find((candidate) => candidate.dataset.recordId === id);
   (replacement ?? controls.status).focus();
@@ -105,6 +112,27 @@ const saveForm = document.getElementById('save-form');
 const saveFile = document.getElementById('save-file');
 const saveSubmit = document.getElementById('save-submit');
 const importMessage = document.getElementById('import-message');
+const actionMessage = document.getElementById('action-message');
+
+document.getElementById('undo-manual').addEventListener('click', () => {
+  undoManualChanges();
+  render();
+  actionMessage.textContent = 'Alterações manuais removidas. O progresso voltou à base do save, se houver.';
+  actionMessage.focus();
+});
+document.getElementById('restore-initial').addEventListener('click', () => {
+  restoreInitialProgress();
+  saveFile.value = '';
+  saveFile.removeAttribute('aria-invalid');
+  importMessage.textContent = '';
+  render();
+  actionMessage.textContent = 'Progresso inicial restaurado. Save importado e alterações manuais removidos.';
+  actionMessage.focus();
+});
+document.getElementById('import-another').addEventListener('click', () => {
+  actionMessage.textContent = 'Escolha outro arquivo e clique em Importar progresso. O progresso atual será mantido até a validação terminar.';
+  saveFile.click();
+});
 saveForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   saveSubmit.disabled = true;
@@ -114,6 +142,7 @@ saveForm.addEventListener('submit', async (event) => {
   try {
     const result = await readSaveFile(saveFile.files[0]);
     replaceImportedProgress(result.recordedIds, result.version);
+    actionMessage.textContent = '';
     render();
     importMessage.textContent = `Save ${result.version} importado: ${result.recordedIds.size} itens encontrados no catálogo.`;
   } catch (error) {

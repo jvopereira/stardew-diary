@@ -40,7 +40,7 @@ O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site s
 
 ## Catálogo
 
-Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem do save importado e de alterações manuais temporárias; nada disso é salvo após recarregar a página. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
+Abra `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados; nada disso é salvo após recarregar a página. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
 
 ## Importação de saves
 
