@@ -13,6 +13,7 @@ const seasonNames = Object.fromEntries(collection.grouping.groups);
 const methodNames = { rod: 'Vara de pesca', 'crab-pot': 'Covo' };
 const weatherNames = { sunny: 'Ensolarado', rainy: 'Chuvoso', any: 'Qualquer clima' };
 const locationNames = { Ocean: 'Oceano', River: 'Rio', 'River; mountain lake': 'Rio; Lago da Montanha' };
+const wikiFileEndpoint = 'https://stardewvalleywiki.com/Special:Redirect/file/';
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -29,6 +30,24 @@ function condition(list, label, value, partial = false) {
   list.append(item);
 }
 
+function wikiThumbnailUrl(name) {
+  return `${wikiFileEndpoint}${encodeURIComponent(`${name.replaceAll(' ', '_')}.png`)}?width=120`;
+}
+
+function thumbnail(entry) {
+  const frame = element('div', 'item-thumbnail');
+  frame.setAttribute('aria-hidden', 'true');
+  const image = document.createElement('img');
+  image.src = wikiThumbnailUrl(entry.nameEn);
+  image.alt = '';
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.referrerPolicy = 'no-referrer';
+  image.addEventListener('error', () => frame.remove());
+  frame.append(image);
+  return frame;
+}
+
 function card(entry) {
   const article = element('article', 'item-card');
   article.dataset.id = entry.id;
@@ -39,7 +58,7 @@ function card(entry) {
   titleBlock.append(element('p', 'english-name', entry.nameEn));
   const source = statusSource(entry.id);
   const statusText = `${recorded ? 'Registrado' : 'Não registrado'}${source === 'none' ? '' : ` · ${source === 'save' ? 'save importado' : 'ajuste local'}`}`;
-  header.append(titleBlock, element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, statusText));
+  header.append(thumbnail(entry), titleBlock, element('span', `status-badge ${recorded ? 'is-recorded' : ''}`, statusText));
   article.append(header);
 
   const details = element('dl', 'conditions');

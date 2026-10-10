@@ -57,3 +57,10 @@ test('HTML and module assets resolve inside the project Pages prefix', () => {
     }
   }
 });
+
+test('catalog thumbnails use the fixed Wiki file endpoint', () => {
+  const source = contents('scripts/catalog.js');
+  assert.match(source, /https:\/\/stardewvalleywiki\.com\/Special:Redirect\/file\//);
+  assert.match(source, /image\.loading = 'lazy'/);
+  assert.match(source, /image\.referrerPolicy = 'no-referrer'/);
+});
