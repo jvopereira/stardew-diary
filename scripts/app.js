@@ -16,6 +16,8 @@ for (const nav of document.querySelectorAll('[data-collection-nav]')) {
     icon.className = 'game-icon';
     const label = document.createElement('span');
     label.textContent = collection.id === 'fishing' ? 'Peixes' : collection.label;
+    link.setAttribute('aria-label', label.textContent);
+    link.title = label.textContent;
     link.append(icon, label);
     if (collection.id === current) link.setAttribute('aria-current', 'page');
     nav.append(link);
@@ -48,6 +50,18 @@ const sidebar = document.getElementById('sidebar');
 const navToggle = document.getElementById('nav-toggle');
 const navBackdrop = document.getElementById('nav-backdrop');
 const mobileNav = window.matchMedia('(max-width: 760px)');
+const navCollapse = document.getElementById('nav-collapse');
+function setSidebarCollapsed(collapsed) {
+  document.documentElement.dataset.sidebar = collapsed ? 'collapsed' : 'expanded';
+  navCollapse.setAttribute('aria-expanded', String(!collapsed));
+  navCollapse.setAttribute('aria-label', collapsed ? 'Expandir navegação' : 'Recolher navegação');
+  navCollapse.title = collapsed ? 'Expandir navegação' : 'Recolher navegação';
+}
+setSidebarCollapsed(document.documentElement.dataset.sidebar !== 'expanded');
+navCollapse.addEventListener('click', () => {
+  setSidebarCollapsed(document.documentElement.dataset.sidebar !== 'collapsed');
+  try { sessionStorage.setItem('diario-do-vale-sidebar', document.documentElement.dataset.sidebar); } catch { /* Keep the choice for this page. */ }
+});
 function setNavOpen(open, returnFocus = false) {
   sidebar.classList.toggle('is-open', open);
   sidebar.inert = mobileNav.matches && !open;
@@ -67,7 +81,7 @@ document.addEventListener('keydown', (event) => {
   if (sidebar.classList.contains('is-open') && !saveDialog.open) {
     if (event.key === 'Escape') setNavOpen(false, true);
     if (event.key === 'Tab') {
-      const focusable = [...sidebar.querySelectorAll('a,button')];
+      const focusable = [...sidebar.querySelectorAll('a,button')].filter((element) => element.getClientRects().length);
       const first = focusable[0], last = focusable.at(-1);
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
@@ -93,7 +107,10 @@ function cancelImport() {
 function updateSaveStatus() {
   const imported = collections.filter((collection) => progressForCollection(collection.id).progressSummary(collection.completion.requiredIds).hasImportedBaseline).length;
   document.getElementById('save-status').textContent = imported === collections.length ? 'Save importado' : imported ? 'Atualize o save para sincronizar as coleções' : 'Nenhum save importado';
-  saveOpen.textContent = imported ? 'Atualizar save' : 'Importar save';
+  const saveLabel = imported ? 'Atualizar save' : 'Importar save';
+  saveOpen.querySelector('.save-label').textContent = saveLabel;
+  saveOpen.setAttribute('aria-label', saveLabel);
+  saveOpen.title = saveLabel;
 }
 saveOpen.addEventListener('click', () => saveDialog.showModal());
 document.getElementById('close-save-import').addEventListener('click', () => saveDialog.close());

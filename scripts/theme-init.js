@@ -5,4 +5,7 @@
   const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
   const theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
   document.documentElement.dataset.theme = theme;
+  let sidebar = 'collapsed';
+  try { if (sessionStorage.getItem('diario-do-vale-sidebar') === 'expanded') sidebar = 'expanded'; } catch { /* Use the compact rail when storage is unavailable. */ }
+  document.documentElement.dataset.sidebar = sidebar;
 })();

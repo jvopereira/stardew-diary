@@ -63,7 +63,7 @@ Os resultados da revisão dos requisitos, os cenários testados e os limites da 
 
 ## Navegação
 
-A lateral reúne as coleções, o botão único de save e o tema, com ícones locais do jogo. Em telas pequenas, **Menu** abre a lateral; Escape ou o botão de fechar a recolhem. A importação abre uma janela com foco contido e pode ser cancelada sem substituir o progresso anterior.
+A lateral começa recolhida no desktop, com ícones das coleções, save e tema. O botão de seta expande ou recolhe os rótulos; a preferência é mantida durante a sessão ao trocar de página. Os ícones têm nomes acessíveis e dicas de ação. Em telas pequenas, **Menu** abre a lateral completa; Escape ou o botão de fechar a recolhem. A importação abre uma janela com foco contido e pode ser cancelada sem substituir o progresso anterior.
 
 ## Imagens dos itens
 

@@ -7,7 +7,7 @@
     <meta name="description" content="Explore artefatos e minerais do Museu por tipo e status de doação.">
     <title>Artigos do Museu — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css?v=7">
+    <link rel="stylesheet" href="styles/main.css?v=8">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/museum.js"></script>
   </head>
@@ -16,15 +16,15 @@
     <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="sidebar" aria-expanded="false"><img class="game-icon" src="assets/icons/stardrop.png" alt="">Menu</button>
     <div class="nav-backdrop" id="nav-backdrop" hidden></div>
     <aside class="side-nav" id="sidebar" aria-label="Navegação do diário">
-      <a class="brand" href="./"><img class="brand-icon" src="assets/icons/stardrop.png" alt=""><span>Diário<br>do Vale</span></a>
+      <a class="brand" href="./" aria-label="Diário do Vale" title="Diário do Vale"><img class="brand-icon" src="assets/icons/stardrop.png" alt=""><span>Diário<br>do Vale</span></a>
+      <button class="nav-collapse" id="nav-collapse" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Expandir navegação" title="Expandir navegação"><span class="collapse-icon" aria-hidden="true"></span></button>
       <button class="nav-close" id="nav-close" type="button" aria-label="Fechar menu">×</button>
       <p class="nav-caption">Suas coleções</p>
       <nav aria-label="Coleções" data-collection-nav data-current-collection="museum"></nav>
       <div class="sidebar-save">
-        <img class="save-emblem" src="assets/icons/save.png" alt="">
         <p id="save-status" class="save-status" role="status" aria-live="polite">Nenhum save importado</p>
         <p class="sidebar-help">Um save para todas as coleções.</p>
-        <button class="save-open" id="open-save-import" type="button" aria-haspopup="dialog">Importar save</button>
+        <button class="save-open" id="open-save-import" type="button" aria-haspopup="dialog" aria-label="Importar save" title="Importar save"><img class="game-icon" src="assets/icons/save.png" alt=""><span class="save-label">Importar save</span></button>
       </div>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" title="Ativar tema escuro" aria-pressed="false"><img class="theme-icon" src="assets/icons/moon.svg" alt="" aria-hidden="true"></button>
     </aside>

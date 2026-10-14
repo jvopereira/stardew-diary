@@ -76,8 +76,26 @@
 .save-format{margin:0;color:var(--muted);font-size:.8rem;line-height:1.5}
 .nav-toggle,.nav-close{display:none}
 .nav-backdrop{position:fixed;inset:0;z-index:4;background:rgb(0 0 0 / .5)}
+.nav-collapse{display:grid;place-items:center;flex:none;width:44px;height:44px;margin:1.25rem 0 0;padding:0;color:var(--muted);background:transparent;border:0}
+.nav-collapse:hover{color:var(--ink);background:var(--water)}
+.collapse-icon{width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(-135deg)}
+.save-open{display:flex;align-items:center;justify-content:center;gap:.65rem}
+@media(min-width:761px){
+  :root[data-sidebar="collapsed"] .side-nav{width:72px;padding:1.5rem .75rem 1rem;align-items:center}
+  :root[data-sidebar="collapsed"] .side-nav .brand{justify-content:center}
+  :root[data-sidebar="collapsed"] .brand-icon{width:40px;height:40px}
+  :root[data-sidebar="collapsed"] .brand span,:root[data-sidebar="collapsed"] .nav-caption,:root[data-sidebar="collapsed"] .side-nav nav a span,:root[data-sidebar="collapsed"] .save-status,:root[data-sidebar="collapsed"] .sidebar-help,:root[data-sidebar="collapsed"] .save-label{display:none}
+  :root[data-sidebar="collapsed"] .collapse-icon{transform:rotate(45deg)}
+  :root[data-sidebar="collapsed"] .side-nav nav{width:48px;margin-top:1.25rem}
+  :root[data-sidebar="collapsed"] .side-nav nav a{justify-content:center;min-height:48px;padding:0}
+  :root[data-sidebar="collapsed"] .sidebar-save{width:48px;margin-top:1.25rem;padding:1.25rem 0 0}
+  :root[data-sidebar="collapsed"] .save-open{width:48px;height:48px;padding:0;background:transparent;border-color:transparent}
+  :root[data-sidebar="collapsed"] .save-open:hover{background:var(--water)}
+  :root[data-sidebar="collapsed"] .catalog-page{margin-left:72px}
+}
 @media(max-width:1100px) and (min-width:761px){.catalog-tools,.museum-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.field:nth-child(3){border-left:0}}
 @media(max-width:760px){
+  .nav-collapse{display:none}
   .side-nav{width:min(290px,calc(100vw - 3rem));transform:translateX(-100%);visibility:hidden}
   .side-nav.is-open{transform:translateX(0);visibility:visible}
   .nav-close{display:block;position:absolute;top:.5rem;right:.5rem}
