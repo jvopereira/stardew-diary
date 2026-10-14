@@ -1,13 +1,14 @@
 import { collections, collectionById } from './data/collections.js';
 
 export const PROGRESS_STORAGE_KEY = 'diario-do-vale-progress-v1';
+export const FILTERS_STORAGE_KEY = 'diario-do-vale-filters-v1';
 export function progressStorageKey(collection) {
   return collection.id === 'fishing' ? PROGRESS_STORAGE_KEY : `diario-do-vale-progress-${collection.id}-v1`;
 }
 
 export function deleteLocalData() {
   let deleted = true;
-  for (const key of [...collections.map(progressStorageKey), 'diario-do-vale-theme']) {
+  for (const key of [...collections.map(progressStorageKey), 'diario-do-vale-theme', FILTERS_STORAGE_KEY]) {
     try { localStorage.removeItem(key); } catch { deleted = false; }
   }
   return deleted;

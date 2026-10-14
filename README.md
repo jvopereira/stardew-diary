@@ -4,36 +4,39 @@ Site estático para explorar a coleção de pesca e as doações ao Museu de Sta
 
 ## Estrutura
 
-- `index.html` — redireciona a raiz para o catálogo.
-- `catalogo.html` — catálogo de pesca.
-- `museu.html` — Artigos do Museu.
+Interface em React + TypeScript, compilada com Vite para arquivos estáticos.
+
+- `index.html`, `catalogo.html`, `museu.html` — entradas do build; a raiz e `catalogo.html` abrem Peixes, `museu.html` abre o Museu. A navegação entre elas acontece sem recarregar a página (React Router, prefixo `/stardew-diary/`).
+- `src/` — aplicação React: `App.tsx` (lateral, menu móvel, rotas), `state/` (provedor de progresso, importação, tema e filtros), `components/` (lateral, diálogo de importação, progresso, filtros, grupos e cartões) e `pages/` (apresentações de Peixes e Museu).
+- `scripts/` — modelos de domínio em JavaScript reutilizados pela interface: dados das coleções, progresso, leitura de saves e exportação. `scripts/theme-init.js` aplica tema e lateral antes da renderização.
 - `styles/main.css` — apresentação e layout responsivo.
-- `scripts/data/collections.js` — metadados das coleções (preparado para outras categorias).
-- `scripts/app.js` — comportamento da aplicação.
-- `.nojekyll` — evita processamento Jekyll no GitHub Pages.
+- `tests/` — testes de domínio (`tests/*.test.mjs`), do build (`tests/build/`) e de navegador com Playwright (`tests/e2e/`).
+- `.github/workflows/deploy.yml` — testes, build e publicação no GitHub Pages.
 
 ## Executar localmente
 
-Use um servidor HTTP simples na raiz do repositório (módulos JavaScript não funcionam de forma confiável via `file://`):
+Requer Node 24 e npm.
 
 ```sh
-python3 -m http.server 8000
+npm ci
+npm run dev
 ```
 
-Abra `http://localhost:8000/`. Não há dependências para instalar nem etapa de build.
+Abra `http://localhost:5173/stardew-diary/`. Para conferir o build como será publicado, use `npm run build` e `npm run preview` (`http://localhost:4173/stardew-diary/`).
+
+Verificações:
+
+- `npm run test:unit` — testes de domínio e de filtros.
+- `npm run typecheck` — TypeScript estrito.
+- `npm run build` e `npm run test:build` — gera `dist/` e confere entradas, recursos e caminhos.
+- `npm run test:e2e` — Playwright contra a prévia do build. Localmente usa o Google Chrome instalado; em outro ambiente, execute `npx playwright install chromium` antes.
+- `npm test` — todas as etapas acima em sequência.
 
 ## Publicar no GitHub Pages
 
-O repositório usa `main` como branch e mantém `index.html`, `catalogo.html` e `.nojekyll` na raiz. A fonte de publicação correspondente é **Deploy from a branch → `main` → `/ (root)`**. Não é necessário workflow, etapa de build, backend, segredo ou serviço adicional.
+O workflow **Test and deploy** roda em cada pull request e em cada push para `main`. Em `main`, depois de todas as verificações passarem, publica `dist/` no GitHub Pages. A fonte de publicação deve ser **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 
-1. Envie os commits que deseja publicar com `git push origin main`. Arquivos não rastreados pelo Git não são publicados.
-2. Em [Settings → Pages do repositório](https://github.com/jvopereira/stardew-diary/settings/pages), escolha **Deploy from a branch** em **Build and deployment → Source**.
-3. Escolha **`main`** e **`/ (root)`**, depois clique em **Save**. É necessário ter permissão de administração ou manutenção no repositório para alterar essa configuração.
-4. Aguarde a implantação e abra [https://jvopereira.github.io/stardew-diary/](https://jvopereira.github.io/stardew-diary/). A raiz abre o catálogo. Confira estilos e controles. A URL só responderá após Pages estar habilitado e a implantação terminar.
-
-Para **atualizar** o site, registre as alterações em um commit e execute `git push origin main`; Pages publica as mudanças da raiz dessa branch. Acompanhe o andamento em **Actions** ou **Settings → Pages**. Para testar antes de enviar, execute `node --test tests/*.test.mjs` e siga as instruções de servidor local acima.
-
-Os caminhos internos são relativos, então os recursos funcionam sob o prefixo `/stardew-diary/` do endereço de projeto e em um domínio próprio. `.nojekyll` mantém os arquivos estáticos sem processamento Jekyll.
+Para atualizar o site, integre as alterações em `main` e acompanhe a execução em **Actions**. O endereço é [https://jvopereira.github.io/stardew-diary/](https://jvopereira.github.io/stardew-diary/). Os endereços antigos `catalogo.html` e `museu.html` continuam válidos. `.nojekyll`, sprites, documentação e `theme-init.js` são copiados para o build.
 
 ## Catálogo de pesca
 
@@ -51,7 +54,7 @@ O botão de sol/lua em pixel art na lateral alterna entre claro e escuro. O tema
 
 ## Catálogo
 
-Abra a raiz do site ou `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso de todas as coleções e a preferência de tema deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
+Abra a raiz do site ou `catalogo.html` para pesquisar os 72 itens e filtrar por estação, método ou status. O status vem de uma base importada e de ajustes manuais separados. O navegador guarda apenas os IDs de catálogo necessários para recuperar esses estados. **Desfazer alterações manuais** volta à base importada; **Restaurar progresso inicial** remove também essa base; **Importar outro save** só troca a base após uma nova validação bem-sucedida. **Excluir dados locais do site** apaga o progresso de todas as coleções, a preferência de tema e os filtros salvos deste navegador, sem alterar arquivos do jogo. O progresso fica neste navegador e não é sincronizado entre dispositivos. Busca e filtros de cada coleção são lembrados entre visitas (`diario-do-vale-filters-v1`); valores salvos inválidos voltam ao padrão. Marcar um item mantém o foco no botão; se o cartão sair dos filtros, o foco vai para o filtro de coleção. Entradas com estação ainda não verificada ficam no grupo “Estação a verificar”; condições parciais são identificadas no cartão.
 
 **Exportar progresso em JSON** baixa os IDs atualmente registrados, incluindo ajustes manuais, com `formatVersion: 1` e `collectionId: "fishing"`. O arquivo serve como backup ou referência para transferência manual; o site ainda não importa esse JSON. Nenhum dado do save entra no arquivo exportado.
 

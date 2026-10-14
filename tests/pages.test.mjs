@@ -11,59 +11,39 @@ function contents(path) {
   return readFileSync(new URL(path, `file://${root}`), 'utf8');
 }
 
-test('Pages source is a build-free root with an entry page', () => {
+test('each legacy URL has an HTML entry that mounts the React app', () => {
   for (const path of ['index.html', 'catalogo.html', 'museu.html', '.nojekyll']) {
-    assert.equal(existsSync(new URL(path, `file://${root}`)), true, `${path} must exist at the publishing root`);
+    assert.equal(existsSync(new URL(path, `file://${root}`)), true, `${path} must exist`);
   }
-});
-
-test('root entry opens the catalog through a relative redirect', () => {
-  const html = contents('index.html');
-  assert.match(html, /http-equiv="refresh" content="0; url=catalogo\.html"/);
-  assert.match(html, /<a href="catalogo\.html">Abrir catálogo de peixes<\/a>/);
-});
-
-test('HTML and module assets resolve inside the project Pages prefix', () => {
   for (const page of ['index.html', 'catalogo.html', 'museu.html']) {
     const html = contents(page);
-    const assets = [...html.matchAll(/<(?:script|link)\b[^>]*?\b(?:src|href)="([^"]+)"/g)].map((match) => match[1]);
-    for (const asset of assets) {
-      if (/^(?:https?:|#)/.test(asset)) continue;
-      const url = new URL(asset, base);
-      assert.equal(url.pathname.startsWith('/stardew-diary/'), true, `${page}: ${asset} escaped the project prefix`);
-      assert.equal(existsSync(new URL(url.pathname.slice('/stardew-diary/'.length), `file://${root}`)), true, `${page}: ${asset} is missing`);
-    }
+    assert.match(html, /<div id="root"><\/div>/);
+    assert.match(html, /<script type="module" src="\/src\/main\.tsx"><\/script>/);
   }
+});
+
+test('appearance is initialized before the app renders', () => {
   for (const page of ['index.html', 'catalogo.html', 'museu.html']) {
-    for (const match of contents(page).matchAll(/<a\b[^>]*?\bhref="([^"]+)"/g)) {
-      const href = match[1];
-      if (/^(?:https?:|mailto:|#)/.test(href)) continue;
-      const target = new URL(href, base);
-      assert.equal(target.pathname.startsWith('/stardew-diary/'), true, `${page}: link ${href} escaped the project prefix`);
-      const path = target.pathname.slice('/stardew-diary/'.length) || 'index.html';
-      assert.equal(existsSync(new URL(path, `file://${root}`)), true, `${page}: link ${href} is missing`);
-    }
+    const html = contents(page);
+    const init = html.indexOf('scripts/theme-init.js');
+    assert.ok(init > 0 && init < html.indexOf('/src/main.tsx'), `${page}: theme-init must run first`);
+    assert.doesNotMatch(html.match(/<script[^>]*theme-init[^>]*>/)[0], /type="module"|defer|async/);
   }
-  for (const collection of collections) {
-    const target = new URL(collection.href, base);
-    assert.equal(existsSync(new URL(target.pathname.slice('/stardew-diary/'.length), `file://${root}`)), true, `${collection.id}: navigation page is missing`);
-  }
-  for (const module of ['scripts/app.js', 'scripts/catalog.js', 'scripts/progress.js', 'scripts/export.js', 'scripts/save-parser.js', 'scripts/catalog-model.js', 'scripts/data/collections.js', 'scripts/catalog-controller.js', 'scripts/save-common.js', 'scripts/museum.js', 'scripts/museum-model.js', 'scripts/museum-save-parser.js', 'scripts/data/museum.js', 'scripts/save-import.js', 'scripts/item-images.js']) {
-    for (const match of contents(module).matchAll(/\bfrom\s+['"](\.[^'"]+)['"]/g)) {
-      const source = new URL(module, base);
-      const target = new URL(match[1], source);
-      assert.equal(target.pathname.startsWith('/stardew-diary/'), true, `${module}: import escaped the project prefix`);
-      assert.equal(existsSync(new URL(target.pathname.slice('/stardew-diary/'.length), `file://${root}`)), true, `${module}: import ${match[1]} is missing`);
-    }
-  }
+});
+
+test('Vite builds all entries under the project Pages prefix', () => {
+  const config = contents('vite.config.ts');
+  assert.match(config, /base: '\/stardew-diary\/'/);
+  for (const entry of ['index.html', 'catalogo.html', 'museu.html']) assert.match(config, new RegExp(`'${entry.replace('.', '\\.')}'`));
+  for (const path of ["'assets'", "'docs'", "'scripts/theme-init.js'", "'.nojekyll'"]) assert.ok(config.includes(path), `${path} must be copied`);
 });
 
 test('both catalogs use local thumbnails with no Wiki image requests', () => {
-  for (const module of ['scripts/catalog.js', 'scripts/museum.js']) {
-    const source = contents(module);
-    assert.match(source, /image\.src = itemImagePath\(collection\.id, entry\.id\)/);
-    assert.doesNotMatch(source, /Special:Redirect|wikiThumbnailUrl/);
-    assert.match(source, /image\.loading = 'lazy'/);
+  const card = contents('src/components/ItemCard.tsx');
+  assert.match(card, /asset\(`assets\/items\/\$\{collectionId\}\/\$\{itemId\}\.png`\)/);
+  assert.match(card, /loading="lazy"/);
+  for (const module of ['src/components/ItemCard.tsx', 'src/pages/FishingPage.tsx', 'src/pages/MuseumPage.tsx']) {
+    assert.doesNotMatch(contents(module), /Special:Redirect|wikiThumbnailUrl/);
   }
 });
 
@@ -90,13 +70,11 @@ test('all 167 items have unique local PNGs and documented sources within the Pag
 });
 
 test('each collection uses a sidebar and one shared save dialog', () => {
-  for (const page of ['catalogo.html', 'museu.html']) {
-    const html = contents(page);
-    assert.match(html, /<aside class="side-nav"/);
-    assert.doesNotMatch(html, /<header/);
-    assert.equal([...html.matchAll(/id="save-form"/g)].length, 1);
-    assert.match(html, /<dialog class="save-dialog"/);
-    assert.doesNotMatch(html, /class="save-import"/);
-    for (const asset of ['stardrop', 'fishing', 'museum', 'save']) assert.ok(existsSync(new URL(`assets/icons/${asset}.png`, `file://${root}`)));
-  }
+  const app = contents('src/App.tsx');
+  assert.equal([...app.matchAll(/<SaveDialog\b/g)].length, 1);
+  assert.match(app, /<Sidebar\b/);
+  assert.doesNotMatch(app, /<header/);
+  assert.match(contents('src/components/Sidebar.tsx'), /<aside className=\{`side-nav/);
+  assert.match(contents('src/components/SaveDialog.tsx'), /<dialog className="save-dialog"/);
+  for (const asset of ['stardrop', 'fishing', 'museum', 'save']) assert.ok(existsSync(new URL(`assets/icons/${asset}.png`, `file://${root}`)));
 });
