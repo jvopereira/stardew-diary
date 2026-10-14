@@ -34,8 +34,8 @@ test('all catalog IDs have unique save keys', () => {
   assert.equal(new Set(Object.values(fishSaveIds)).size, 72);
 });
 
-test('only implemented fishing is registered with its own filters and completion IDs', () => {
-  assert.deepEqual(collections.map((collection) => collection.id), ['fishing']);
+test('implemented collections are registered and fishing retains its filters and completion IDs', () => {
+  assert.deepEqual(collections.map((collection) => collection.id), ['fishing', 'museum']);
   const collection = collectionById('fishing');
   assert.deepEqual(new Set(collection.completion.requiredIds), new Set(collection.entries.map((entry) => entry.id)));
   assert.deepEqual(collection.filters, ['search', 'season', 'method', 'status']);

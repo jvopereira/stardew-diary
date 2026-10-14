@@ -1,6 +1,14 @@
 # Importação local de saves
 
-Revisado em 2026-10-09. O leitor aceita **XML descompactado com `<SaveGame>`, `<gameVersion>1.6</gameVersion>` ou `<gameVersion>1.6.x</gameVersion>`, `<player>` e `<fishCaught>`**. O limite é **10 MiB** por arquivo. A versão 1.6 é a linha de referência do catálogo; a estrutura de `fishCaught` e suas chaves foi conferida no código do Stardew Checkup. Patches futuros podem mudar a estrutura e falharão na validação se não seguirem esse formato.
+Revisado em 2026-10-14. O leitor aceita **XML descompactado com `<SaveGame>`, `<gameVersion>1.6</gameVersion>` ou `<gameVersion>1.6.x</gameVersion>`, `<player>` e `<fishCaught>`**. O limite é **10 MiB** por arquivo. A versão 1.6 é a linha de referência do catálogo; a estrutura de `fishCaught` e suas chaves foi conferida no código do Stardew Checkup. Patches futuros podem mudar a estrutura e falharão na validação se não seguirem esse formato.
+
+Para **Artigos do Museu**, o leitor exige a localização `LibraryMuseum` em `locations` e seu registro `museumPieces`. Lê os IDs nos valores de cada doação, sem usar os registros de descoberta do jogador. O progresso é compartilhado pela fazenda e independente da pesca. Veja [Artigos do Museu](museum-catalog.md) para formato, fontes e limites de verificação.
+
+## Uma importação para todas as coleções
+
+O botão **Importar save** na navegação lateral abre uma única janela. **Atualizar todas as coleções** lê e interpreta o XML uma vez, valida os registros de pesca e Museu e só então aplica o resultado às duas coleções. Se qualquer registro estiver ausente ou inválido, ambas preservam o progresso anterior. O novo save válido substitui as duas bases e remove os ajustes manuais de ambas.
+
+Não é necessário importar novamente ao trocar de página ou recarregar: somente os IDs de progresso ficam salvos neste navegador. Após jogar, use **Atualizar save** para ler o arquivo atualizado. O site não acompanha alterações no arquivo automaticamente. Saves já importados anteriormente continuam disponíveis nas suas chaves originais; se apenas uma coleção tiver base importada, a lateral orienta a atualizar o save para sincronizá-las.
 
 ## Verificação e limites
 

@@ -1,0 +1,1171 @@
+[
+  {
+    "collectionId": "fishing",
+    "itemId": "pufferfish",
+    "path": "assets/items/fishing/pufferfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Pufferfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/ba/Pufferfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "anchovy",
+    "path": "assets/items/fishing/anchovy.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Anchovy.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/79/Anchovy.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "tuna",
+    "path": "assets/items/fishing/tuna.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Tuna.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/c5/Tuna.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sardine",
+    "path": "assets/items/fishing/sardine.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sardine.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/04/Sardine.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "bream",
+    "path": "assets/items/fishing/bream.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Bream.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/82/Bream.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "largemouth-bass",
+    "path": "assets/items/fishing/largemouth-bass.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Largemouth_Bass.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/11/Largemouth_Bass.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "smallmouth-bass",
+    "path": "assets/items/fishing/smallmouth-bass.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Smallmouth_Bass.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a5/Smallmouth_Bass.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "rainbow-trout",
+    "path": "assets/items/fishing/rainbow-trout.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Rainbow_Trout.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/14/Rainbow_Trout.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "salmon",
+    "path": "assets/items/fishing/salmon.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Salmon.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e0/Salmon.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "walleye",
+    "path": "assets/items/fishing/walleye.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Walleye.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/05/Walleye.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "perch",
+    "path": "assets/items/fishing/perch.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Perch.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/43/Perch.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "carp",
+    "path": "assets/items/fishing/carp.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Carp.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a8/Carp.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "catfish",
+    "path": "assets/items/fishing/catfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Catfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/99/Catfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "pike",
+    "path": "assets/items/fishing/pike.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Pike.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/31/Pike.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sunfish",
+    "path": "assets/items/fishing/sunfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sunfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/56/Sunfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "red-mullet",
+    "path": "assets/items/fishing/red-mullet.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Red_Mullet.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/f2/Red_Mullet.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "herring",
+    "path": "assets/items/fishing/herring.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Herring.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/f1/Herring.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "eel",
+    "path": "assets/items/fishing/eel.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Eel.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/91/Eel.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "octopus",
+    "path": "assets/items/fishing/octopus.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Octopus.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/5a/Octopus.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "red-snapper",
+    "path": "assets/items/fishing/red-snapper.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Red_Snapper.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d3/Red_Snapper.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "squid",
+    "path": "assets/items/fishing/squid.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Squid.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/81/Squid.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "seaweed",
+    "path": "assets/items/fishing/seaweed.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Seaweed.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/13/Seaweed.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "green-algae",
+    "path": "assets/items/fishing/green-algae.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Green_Algae.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/6d/Green_Algae.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sea-cucumber",
+    "path": "assets/items/fishing/sea-cucumber.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sea_Cucumber.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a9/Sea_Cucumber.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "super-cucumber",
+    "path": "assets/items/fishing/super-cucumber.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Super_Cucumber.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d5/Super_Cucumber.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "ghostfish",
+    "path": "assets/items/fishing/ghostfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ghostfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/72/Ghostfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "white-algae",
+    "path": "assets/items/fishing/white-algae.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/White_Algae.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/f7/White_Algae.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "stonefish",
+    "path": "assets/items/fishing/stonefish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Stonefish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/03/Stonefish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "crimsonfish",
+    "path": "assets/items/fishing/crimsonfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Crimsonfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/dc/Crimsonfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "angler",
+    "path": "assets/items/fishing/angler.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Angler.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/bf/Angler.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "ice-pip",
+    "path": "assets/items/fishing/ice-pip.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ice_Pip.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/63/Ice_Pip.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "lava-eel",
+    "path": "assets/items/fishing/lava-eel.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lava_Eel.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/12/Lava_Eel.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "legend",
+    "path": "assets/items/fishing/legend.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Legend.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/10/Legend.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sandfish",
+    "path": "assets/items/fishing/sandfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sandfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/bb/Sandfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "scorpion-carp",
+    "path": "assets/items/fishing/scorpion-carp.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Scorpion_Carp.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/76/Scorpion_Carp.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "flounder",
+    "path": "assets/items/fishing/flounder.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Flounder.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/85/Flounder.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "midnight-carp",
+    "path": "assets/items/fishing/midnight-carp.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Midnight_Carp.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/33/Midnight_Carp.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "clam",
+    "path": "assets/items/fishing/clam.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Clam.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ed/Clam.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "mutant-carp",
+    "path": "assets/items/fishing/mutant-carp.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Mutant_Carp.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/cb/Mutant_Carp.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sturgeon",
+    "path": "assets/items/fishing/sturgeon.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sturgeon.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/42/Sturgeon.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "tiger-trout",
+    "path": "assets/items/fishing/tiger-trout.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Tiger_Trout.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/01/Tiger_Trout.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "bullhead",
+    "path": "assets/items/fishing/bullhead.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Bullhead.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/db/Bullhead.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "tilapia",
+    "path": "assets/items/fishing/tilapia.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Tilapia.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/73/Tilapia.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "chub",
+    "path": "assets/items/fishing/chub.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Chub.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/bd/Chub.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "dorado",
+    "path": "assets/items/fishing/dorado.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dorado.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/18/Dorado.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "albacore",
+    "path": "assets/items/fishing/albacore.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Albacore.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e1/Albacore.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "shad",
+    "path": "assets/items/fishing/shad.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Shad.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ef/Shad.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "lingcod",
+    "path": "assets/items/fishing/lingcod.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lingcod.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/87/Lingcod.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "halibut",
+    "path": "assets/items/fishing/halibut.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Halibut.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/02/Halibut.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "lobster",
+    "path": "assets/items/fishing/lobster.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lobster.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/9f/Lobster.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "crayfish",
+    "path": "assets/items/fishing/crayfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Crayfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/53/Crayfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "crab",
+    "path": "assets/items/fishing/crab.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Crab.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/63/Crab.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "cockle",
+    "path": "assets/items/fishing/cockle.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Cockle.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/ad/Cockle.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "mussel",
+    "path": "assets/items/fishing/mussel.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Mussel.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/aa/Mussel.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "shrimp",
+    "path": "assets/items/fishing/shrimp.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Shrimp.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/91/Shrimp.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "snail",
+    "path": "assets/items/fishing/snail.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Snail.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d2/Snail.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "periwinkle",
+    "path": "assets/items/fishing/periwinkle.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Periwinkle.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/1d/Periwinkle.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "oyster",
+    "path": "assets/items/fishing/oyster.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Oyster.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/54/Oyster.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "woodskip",
+    "path": "assets/items/fishing/woodskip.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Woodskip.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/97/Woodskip.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "glacierfish",
+    "path": "assets/items/fishing/glacierfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Glacierfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/fd/Glacierfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "void-salmon",
+    "path": "assets/items/fishing/void-salmon.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Void_Salmon.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/ad/Void_Salmon.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "slimejack",
+    "path": "assets/items/fishing/slimejack.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Slimejack.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/34/Slimejack.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "midnight-squid",
+    "path": "assets/items/fishing/midnight-squid.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Midnight_Squid.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/83/Midnight_Squid.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "spook-fish",
+    "path": "assets/items/fishing/spook-fish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Spook_Fish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/8c/Spook_Fish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "blobfish",
+    "path": "assets/items/fishing/blobfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Blobfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/7f/Blobfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "stingray",
+    "path": "assets/items/fishing/stingray.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Stingray.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/3a/Stingray.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "lionfish",
+    "path": "assets/items/fishing/lionfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lionfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/bb/Lionfish.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "blue-discus",
+    "path": "assets/items/fishing/blue-discus.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Blue_Discus.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ee/Blue_Discus.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "river-jelly",
+    "path": "assets/items/fishing/river-jelly.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/River_Jelly.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/80/River_Jelly.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "cave-jelly",
+    "path": "assets/items/fishing/cave-jelly.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Cave_Jelly.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/0a/Cave_Jelly.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "sea-jelly",
+    "path": "assets/items/fishing/sea-jelly.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sea_Jelly.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d5/Sea_Jelly.png"
+  },
+  {
+    "collectionId": "fishing",
+    "itemId": "goby",
+    "path": "assets/items/fishing/goby.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Goby.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/67/Goby.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "aerinite",
+    "path": "assets/items/museum/aerinite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Aerinite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/6b/Aerinite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "aquamarine",
+    "path": "assets/items/museum/aquamarine.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Aquamarine.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a2/Aquamarine.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "alamite",
+    "path": "assets/items/museum/alamite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Alamite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/7c/Alamite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "amethyst",
+    "path": "assets/items/museum/amethyst.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Amethyst.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/2e/Amethyst.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "anchor",
+    "path": "assets/items/museum/anchor.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Anchor.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/c0/Anchor.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "chipped-amphora",
+    "path": "assets/items/museum/chipped-amphora.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Chipped_Amphora.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/9e/Chipped_Amphora.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "slate",
+    "path": "assets/items/museum/slate.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Slate.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/97/Slate.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "sandstone",
+    "path": "assets/items/museum/sandstone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Sandstone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d6/Sandstone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "orpiment",
+    "path": "assets/items/museum/orpiment.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Orpiment.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/41/Orpiment.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "baryte",
+    "path": "assets/items/museum/baryte.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Baryte.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/aa/Baryte.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "basalt",
+    "path": "assets/items/museum/basalt.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Basalt.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/22/Basalt.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-handaxe",
+    "path": "assets/items/museum/prehistoric-handaxe.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Handaxe.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/07/Prehistoric_Handaxe.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "bixite",
+    "path": "assets/items/museum/bixite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Bixite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/98/Bixite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ancient-doll",
+    "path": "assets/items/museum/ancient-doll.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ancient_Doll.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/c0/Ancient_Doll.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "strange-doll-yellow",
+    "path": "assets/items/museum/strange-doll-yellow.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Strange_Doll_(yellow).png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ef/Strange_Doll_(yellow).png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "strange-doll-green",
+    "path": "assets/items/museum/strange-doll-green.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Strange_Doll_(green).png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/39/Strange_Doll_(green).png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "glass-shards",
+    "path": "assets/items/museum/glass-shards.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Glass_Shards.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/b9/Glass_Shards.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "limestone",
+    "path": "assets/items/museum/limestone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Limestone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/4e/Limestone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "calcite",
+    "path": "assets/items/museum/calcite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Calcite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/97/Calcite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-skull",
+    "path": "assets/items/museum/prehistoric-skull.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Skull.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/58/Prehistoric_Skull.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "celestine",
+    "path": "assets/items/museum/celestine.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Celestine.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/19/Celestine.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "kyanite",
+    "path": "assets/items/museum/kyanite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Kyanite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e4/Kyanite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "rusty-spoon",
+    "path": "assets/items/museum/rusty-spoon.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Rusty_Spoon.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/4e/Rusty_Spoon.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-rib",
+    "path": "assets/items/museum/prehistoric-rib.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Rib.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/62/Prehistoric_Rib.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "earth-crystal",
+    "path": "assets/items/museum/earth-crystal.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Earth_Crystal.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/74/Earth_Crystal.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ghost-crystal",
+    "path": "assets/items/museum/ghost-crystal.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ghost_Crystal.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d0/Ghost_Crystal.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "diamond",
+    "path": "assets/items/museum/diamond.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Diamond.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ea/Diamond.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "rare-disc",
+    "path": "assets/items/museum/rare-disc.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Rare_Disc.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e0/Rare_Disc.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarf-gadget",
+    "path": "assets/items/museum/dwarf-gadget.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarf_Gadget.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/58/Dwarf_Gadget.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dolomite",
+    "path": "assets/items/museum/dolomite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dolomite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d4/Dolomite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarvish-helm",
+    "path": "assets/items/museum/dwarvish-helm.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarvish_Helm.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/8b/Dwarvish_Helm.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "rusty-cog",
+    "path": "assets/items/museum/rusty-cog.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Rusty_Cog.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/74/Rusty_Cog.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-scapula",
+    "path": "assets/items/museum/prehistoric-scapula.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Scapula.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ee/Prehistoric_Scapula.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "emerald",
+    "path": "assets/items/museum/emerald.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Emerald.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/6a/Emerald.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ancient-sword",
+    "path": "assets/items/museum/ancient-sword.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ancient_Sword.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/76/Ancient_Sword.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "esperite",
+    "path": "assets/items/museum/esperite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Esperite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/aa/Esperite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "rusty-spur",
+    "path": "assets/items/museum/rusty-spur.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Rusty_Spur.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/cd/Rusty_Spur.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "skeletal-tail",
+    "path": "assets/items/museum/skeletal-tail.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Skeletal_Tail.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/29/Skeletal_Tail.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "chicken-statue",
+    "path": "assets/items/museum/chicken-statue.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Chicken_Statue.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/af/Chicken_Statue.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dried-starfish",
+    "path": "assets/items/museum/dried-starfish.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dried_Starfish.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/df/Dried_Starfish.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-tool",
+    "path": "assets/items/museum/prehistoric-tool.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Tool.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/26/Prehistoric_Tool.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "bone-flute",
+    "path": "assets/items/museum/bone-flute.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Bone_Flute.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/fc/Bone_Flute.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "fluorapatite",
+    "path": "assets/items/museum/fluorapatite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Fluorapatite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/4a/Fluorapatite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "amphibian-fossil",
+    "path": "assets/items/museum/amphibian-fossil.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Amphibian_Fossil.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/cf/Amphibian_Fossil.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "nautilus-fossil",
+    "path": "assets/items/museum/nautilus-fossil.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Nautilus_Fossil.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/3b/Nautilus_Fossil.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "palm-fossil",
+    "path": "assets/items/museum/palm-fossil.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Palm_Fossil.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e1/Palm_Fossil.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prismatic-shard",
+    "path": "assets/items/museum/prismatic-shard.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prismatic_Shard.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/56/Prismatic_Shard.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "star-shards",
+    "path": "assets/items/museum/star-shards.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Star_Shards.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/3f/Star_Shards.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "geminite",
+    "path": "assets/items/museum/geminite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Geminite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/54/Geminite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "petrified-slime",
+    "path": "assets/items/museum/petrified-slime.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Petrified_Slime.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/24/Petrified_Slime.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "granite",
+    "path": "assets/items/museum/granite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Granite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/4a/Granite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "helvite",
+    "path": "assets/items/museum/helvite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Helvite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/3f/Helvite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "hematite",
+    "path": "assets/items/museum/hematite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Hematite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/b1/Hematite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "jade",
+    "path": "assets/items/museum/jade.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Jade.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/7e/Jade.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "jagoite",
+    "path": "assets/items/museum/jagoite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Jagoite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/c3/Jagoite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "jamborite",
+    "path": "assets/items/museum/jamborite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Jamborite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/4/4b/Jamborite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "jasper",
+    "path": "assets/items/museum/jasper.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Jasper.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/9b/Jasper.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "elvish-jewelry",
+    "path": "assets/items/museum/elvish-jewelry.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Elvish_Jewelry.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/9/9d/Elvish_Jewelry.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "frozen-tear",
+    "path": "assets/items/museum/frozen-tear.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Frozen_Tear.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ec/Frozen_Tear.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "mudstone",
+    "path": "assets/items/museum/mudstone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Mudstone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/52/Mudstone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ornamental-fan",
+    "path": "assets/items/museum/ornamental-fan.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ornamental_Fan.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/ab/Ornamental_Fan.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "lunarite",
+    "path": "assets/items/museum/lunarite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lunarite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/06/Lunarite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "malachite",
+    "path": "assets/items/museum/malachite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Malachite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/ad/Malachite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "skeletal-hand",
+    "path": "assets/items/museum/skeletal-hand.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Skeletal_Hand.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/da/Skeletal_Hand.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "marble",
+    "path": "assets/items/museum/marble.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Marble.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/82/Marble.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "golden-mask",
+    "path": "assets/items/museum/golden-mask.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Golden_Mask.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/7/7e/Golden_Mask.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "nekoite",
+    "path": "assets/items/museum/nekoite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Nekoite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/53/Nekoite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "neptunite",
+    "path": "assets/items/museum/neptunite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Neptunite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/0/05/Neptunite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "obsidian",
+    "path": "assets/items/museum/obsidian.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Obsidian.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/23/Obsidian.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "tigerseye",
+    "path": "assets/items/museum/tigerseye.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Tigerseye.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/6e/Tigerseye.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "opal",
+    "path": "assets/items/museum/opal.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Opal.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/3c/Opal.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "fire-opal",
+    "path": "assets/items/museum/fire-opal.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Fire_Opal.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/60/Fire_Opal.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dinosaur-egg",
+    "path": "assets/items/museum/dinosaur-egg.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dinosaur_Egg.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a1/Dinosaur_Egg.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "thunder-egg",
+    "path": "assets/items/museum/thunder-egg.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Thunder_Egg.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/14/Thunder_Egg.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "chewing-stick",
+    "path": "assets/items/museum/chewing-stick.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Chewing_Stick.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d2/Chewing_Stick.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "fairy-stone",
+    "path": "assets/items/museum/fairy-stone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Fairy_Stone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d9/Fairy_Stone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "lemon-stone",
+    "path": "assets/items/museum/lemon-stone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Lemon_Stone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/31/Lemon_Stone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ocean-stone",
+    "path": "assets/items/museum/ocean-stone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ocean_Stone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/f/f1/Ocean_Stone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "soapstone",
+    "path": "assets/items/museum/soapstone.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Soapstone.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/81/Soapstone.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarf-scroll-i",
+    "path": "assets/items/museum/dwarf-scroll-i.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarf_Scroll_I.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/b/b9/Dwarf_Scroll_I.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarf-scroll-ii",
+    "path": "assets/items/museum/dwarf-scroll-ii.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarf_Scroll_II.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/ca/Dwarf_Scroll_II.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarf-scroll-iii",
+    "path": "assets/items/museum/dwarf-scroll-iii.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarf_Scroll_III.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/ec/Dwarf_Scroll_III.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "dwarf-scroll-iv",
+    "path": "assets/items/museum/dwarf-scroll-iv.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Dwarf_Scroll_IV.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/8/85/Dwarf_Scroll_IV.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "pyrite",
+    "path": "assets/items/museum/pyrite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Pyrite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/6/64/Pyrite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "arrowhead",
+    "path": "assets/items/museum/arrowhead.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Arrowhead.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/d/d1/Arrowhead.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "quartz",
+    "path": "assets/items/museum/quartz.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Quartz.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/cf/Quartz.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "fire-quartz",
+    "path": "assets/items/museum/fire-quartz.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Fire_Quartz.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/5/5b/Fire_Quartz.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "golden-relic",
+    "path": "assets/items/museum/golden-relic.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Golden_Relic.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/3/37/Golden_Relic.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ruby",
+    "path": "assets/items/museum/ruby.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ruby.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a9/Ruby.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ancient-seed",
+    "path": "assets/items/museum/ancient-seed.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ancient_Seed.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/af/Ancient_Seed.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "ancient-drum",
+    "path": "assets/items/museum/ancient-drum.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Ancient_Drum.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/1/1e/Ancient_Drum.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-tibia",
+    "path": "assets/items/museum/prehistoric-tibia.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Tibia.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/c/ce/Prehistoric_Tibia.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "topaz",
+    "path": "assets/items/museum/topaz.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Topaz.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/a/a5/Topaz.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "trilobite",
+    "path": "assets/items/museum/trilobite.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Trilobite.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/2/2b/Trilobite.png"
+  },
+  {
+    "collectionId": "museum",
+    "itemId": "prehistoric-vertebra",
+    "path": "assets/items/museum/prehistoric-vertebra.png",
+    "sourceUrl": "https://stardewvalleywiki.com/Special:Redirect/file/Prehistoric_Vertebra.png",
+    "directUrl": "https://stardewvalleywiki.com/mediawiki/images/e/e9/Prehistoric_Vertebra.png"
+  }
+]

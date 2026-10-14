@@ -7,38 +7,45 @@
     <meta name="description" content="Explore a coleção de pesca do Diário do Vale por estação, método e status.">
     <title>Peixes — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css?v=4">
+    <link rel="stylesheet" href="styles/main.css?v=6">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/catalog.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <header class="site-header">
-      <a class="brand" href="./" aria-label="Diário do Vale, catálogo"><span class="brand-mark" aria-hidden="true">✳</span><span>Diário do Vale</span></a>
-      <div class="header-actions">
-        <nav aria-label="Coleções" data-collection-nav data-current-collection="fishing" hidden></nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span></button>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="sidebar" aria-expanded="false"><img class="game-icon" src="assets/icons/stardrop.png" alt="">Menu</button>
+    <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+    <aside class="side-nav" id="sidebar" aria-label="Navegação do diário">
+      <a class="brand" href="./"><img class="brand-icon" src="assets/icons/stardrop.png" alt=""><span>Diário<br>do Vale</span></a>
+      <button class="nav-close" id="nav-close" type="button" aria-label="Fechar menu">×</button>
+      <p class="nav-caption">Suas coleções</p>
+      <nav aria-label="Coleções" data-collection-nav data-current-collection="fishing"></nav>
+      <div class="sidebar-save">
+        <img class="save-emblem" src="assets/icons/save.png" alt="">
+        <p id="save-status" class="save-status" role="status" aria-live="polite">Nenhum save importado</p>
+        <p class="sidebar-help">Um save para todas as coleções.</p>
+        <button class="save-open" id="open-save-import" type="button" aria-haspopup="dialog">Importar save</button>
       </div>
-    </header>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span>Alternar tema</span></button>
+    </aside>
+    <dialog class="save-dialog" id="save-dialog" aria-labelledby="save-title">
+      <div class="dialog-heading"><h2 id="save-title"><img class="game-icon" src="assets/icons/save.png" alt="">Importar save</h2><button id="close-save-import" type="button" aria-label="Fechar importação">×</button></div>
+      <p class="save-help" id="save-help">Importe uma vez para atualizar Peixes e Artigos do Museu. O progresso fica salvo neste navegador. Para atualizar após jogar, importe o save novamente.</p>
+      <form id="save-form" class="save-form">
+        <label for="save-file">Arquivo principal da partida</label>
+        <input id="save-file" type="file" aria-describedby="save-help save-format import-message">
+        <p class="save-format" id="save-format">XML 1.6.x, até 10 MiB. Leitura local. <a href="docs/save-import.md">Formatos aceitos</a>.</p>
+        <button id="save-submit" type="submit">Atualizar todas as coleções</button>
+        <p id="import-message" class="import-message" role="status" aria-live="polite" aria-atomic="true"></p>
+      </form>
+    </dialog>
     <main id="conteudo" class="catalog-page">
       <div class="catalog-intro">
-        <h1>Peixes</h1>
+        <div class="collection-title"><img class="collection-emblem" src="assets/icons/fishing.png" alt=""><h1>Peixes</h1></div>
       </div>
-      <section class="save-import" aria-labelledby="save-title">
-        <div>
-          <h2 id="save-title">Importar save</h2>
-          <p class="save-help" id="save-help">Selecione o arquivo principal da partida (<code>Nome_123456789</code>). XML 1.6.x, até 10 MiB. Leitura local; o arquivo não é enviado nem salvo. <a href="docs/save-import.md">Formatos aceitos</a>.</p>
-        </div>
-        <form id="save-form" class="save-form">
-          <label for="save-file">Arquivo da partida</label>
-          <input id="save-file" type="file" aria-describedby="save-help import-message">
-          <button id="save-submit" type="submit">Importar progresso</button>
-          <p id="import-message" class="import-message" role="status" aria-live="polite" aria-atomic="true"></p>
-        </form>
-      </section>
       <details class="progress-panel">
         <summary>
-          <div class="progress-heading"><h2 id="progress-title">Sua coleção</h2></div>
+          <div class="progress-heading"><h2 id="progress-title"><img class="game-icon" src="assets/icons/stardrop.png" alt="">Sua coleção</h2></div>
           <p id="progress-summary" class="progress-summary" role="status" aria-live="polite"></p>
           <div class="progress-meter" aria-hidden="true"><span id="progress-meter-value"></span></div>
         </summary>
@@ -51,16 +58,12 @@
             </div>
             <div class="progress-action">
               <button id="restore-initial" type="button" aria-describedby="restore-initial-help">Restaurar progresso inicial</button>
-              <p id="restore-initial-help">Remove o save importado e os ajustes manuais.</p>
-            </div>
-            <div class="progress-action">
-              <button id="import-another" type="button" aria-describedby="import-another-help">Importar outro save</button>
-              <p id="import-another-help">Substitui o progresso após validar outro arquivo.</p>
+              <p id="restore-initial-help">Limpa apenas esta coleção; mantém as demais.</p>
             </div>
           </div>
           <div class="local-data-action">
             <button id="delete-local-data" type="button" aria-describedby="delete-local-data-help">Excluir dados locais do site</button>
-            <p id="delete-local-data-help">Apaga tema e progresso deste navegador. Não altera arquivos do jogo.</p>
+            <p id="delete-local-data-help">Apaga tema e progresso de todas as coleções deste navegador. Não altera arquivos do jogo.</p>
           </div>
           <div class="export-action">
             <button id="export-progress" type="button" aria-describedby="export-progress-help">Exportar progresso em JSON</button>

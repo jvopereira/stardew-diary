@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Synthetic, privacy-free fixture matching the public 1.6.15 sample format. -->
+<SaveGame xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <gameVersion>1.6.15</gameVersion>
+  <player>
+    <fishCaught><item><key><string>(O)128</string></key><value><ArrayOfInt><int>2</int><int>1</int></ArrayOfInt></value></item></fishCaught>
+    <archaeologyFound><item><key><string>97</string></key><value><ArrayOfInt><int>1</int></ArrayOfInt></value></item></archaeologyFound>
+    <mineralsFound><item><key><string>62</string></key><value><int>1</int></value></item></mineralsFound>
+  </player>
+  <locations>
+    <GameLocation i:type="LibraryMuseum">
+      <name>ArchaeologyHouse</name>
+      <museumPieces>
+        <item><key><Vector2><X>1</X><Y>1</Y></Vector2></key><value><int>96</int></value></item>
+        <item><key><Vector2><X>2</X><Y>1</Y></Vector2></key><value><int>60</int></value></item>
+      </museumPieces>
+    </GameLocation>
+  </locations>
+</SaveGame>

@@ -1,7 +1,18 @@
-import { collectionById } from './data/collections.js';
+import { collections, collectionById } from './data/collections.js';
 
 export const PROGRESS_STORAGE_KEY = 'diario-do-vale-progress-v1';
-export function createProgressStore(collection, storageKey = `diario-do-vale-progress-${collection.id}-v1`) {
+export function progressStorageKey(collection) {
+  return collection.id === 'fishing' ? PROGRESS_STORAGE_KEY : `diario-do-vale-progress-${collection.id}-v1`;
+}
+
+export function deleteLocalData() {
+  let deleted = true;
+  for (const key of [...collections.map(progressStorageKey), 'diario-do-vale-theme']) {
+    try { localStorage.removeItem(key); } catch { deleted = false; }
+  }
+  return deleted;
+}
+export function createProgressStore(collection, storageKey = progressStorageKey(collection)) {
 const knownIds = new Set(collection.completion.requiredIds);
 let importedIds = new Set();
 const manualOverrides = new Map();
@@ -15,7 +26,13 @@ function validIds(value) {
 function loadSavedProgress() {
   try {
     const raw = localStorage.getItem(storageKey);
-    if (raw === null) return false;
+    if (raw === null) {
+      importedIds = new Set();
+      manualOverrides.clear();
+      hasImportedBaseline = false;
+      importedVersion = null;
+      return false;
+    }
     if (raw.length > 8192) return false;
     const saved = JSON.parse(raw);
     if (!saved || saved.v !== 1 || !(saved.base === null || validIds(saved.base)) || !validIds(saved.add) || !validIds(saved.remove)) return false;
@@ -116,4 +133,17 @@ return { loadSavedProgress, isRecorded, statusSource, recordedIdSet, toggleManua
 
 // Preserve the existing fishing storage key and public API.
 const fishingProgress = createProgressStore(collectionById('fishing'), PROGRESS_STORAGE_KEY);
+const stores = new Map([['fishing', fishingProgress]]);
+export function progressForCollection(id) {
+  if (!stores.has(id)) stores.set(id, createProgressStore(collectionById(id)));
+  return stores.get(id);
+}
+
+export function replaceCollectionsProgress(result) {
+  let saved = true;
+  for (const collection of collections) {
+    if (!progressForCollection(collection.id).replaceImportedProgress(result.collections[collection.id], result.version)) saved = false;
+  }
+  return saved;
+}
 export const { loadSavedProgress, isRecorded, statusSource, recordedIdSet, toggleManual, undoManualChanges, restoreInitialProgress, replaceImportedProgress, progressSummary } = fishingProgress;
