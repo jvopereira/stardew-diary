@@ -47,7 +47,7 @@ Abra `museu.html` ou use a navegação de coleções. Acompanhe 95 doações ao 
 
 ## Tema
 
-O botão no cabeçalho alterna entre claro e escuro. Sem escolha salva, o site segue a preferência de cores do sistema. A escolha é guardada apenas como `light` ou `dark` em `localStorage` neste navegador; se o armazenamento estiver indisponível, a alternância ainda funciona até recarregar a página.
+O botão de sol/lua em pixel art na lateral alterna entre claro e escuro. O tema escuro OLED Maré usa fundo preto puro, superfícies quase pretas e destaques azuis. Sem escolha salva, o site segue a preferência de cores do sistema. A escolha é guardada apenas como `light` ou `dark` em `localStorage` neste navegador; se o armazenamento estiver indisponível, a alternância ainda funciona até recarregar a página.
 
 ## Catálogo
 

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#173d3a">
+    <meta name="theme-color" content="#e8e7da">
     <meta name="description" content="Explore artefatos e minerais do Museu por tipo e status de doação.">
     <title>Artigos do Museu — Diário do Vale</title>
     <script src="scripts/theme-init.js"></script>
-    <link rel="stylesheet" href="styles/main.css?v=6">
+    <link rel="stylesheet" href="styles/main.css?v=7">
     <script type="module" src="scripts/app.js"></script>
     <script type="module" src="scripts/museum.js"></script>
   </head>
@@ -26,7 +26,7 @@
         <p class="sidebar-help">Um save para todas as coleções.</p>
         <button class="save-open" id="open-save-import" type="button" aria-haspopup="dialog">Importar save</button>
       </div>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span>Alternar tema</span></button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema claro; ativar tema escuro" title="Ativar tema escuro" aria-pressed="false"><img class="theme-icon" src="assets/icons/moon.svg" alt="" aria-hidden="true"></button>
     </aside>
     <dialog class="save-dialog" id="save-dialog" aria-labelledby="save-title">
       <div class="dialog-heading"><h2 id="save-title"><img class="game-icon" src="assets/icons/save.png" alt="">Importar save</h2><button id="close-save-import" type="button" aria-label="Fechar importação">×</button></div>
@@ -42,7 +42,6 @@
     <main id="conteudo" class="catalog-page">
       <div class="catalog-intro">
         <div class="collection-title"><img class="collection-emblem" src="assets/icons/museum.png" alt=""><h1>Artigos do Museu</h1></div>
-        <p class="catalog-note">Acompanhe as 95 doações ao Gunther: 42 artefatos e 53 minerais. O Museu é compartilhado pela fazenda; encontrar um item ainda não significa doá-lo.</p>
       </div>
       <details class="progress-panel">
         <summary>

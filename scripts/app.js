@@ -32,8 +32,9 @@ function applyTheme(theme) {
   themeToggle?.setAttribute('aria-pressed', String(dark));
   themeToggle?.setAttribute('aria-label', dark ? 'Tema escuro; ativar tema claro' : 'Tema claro; ativar tema escuro');
   const icon = themeToggle?.querySelector('.theme-icon');
-  if (icon) icon.textContent = dark ? '☀' : '☾';
-  if (themeColor) themeColor.content = dark ? '#102b2b' : '#173d3a';
+  if (icon) icon.src = `assets/icons/${dark ? 'sun' : 'moon'}.svg`;
+  if (themeToggle) themeToggle.title = dark ? 'Ativar tema claro' : 'Ativar tema escuro';
+  if (themeColor) themeColor.content = dark ? '#000000' : '#e8e7da';
 }
 
 applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');

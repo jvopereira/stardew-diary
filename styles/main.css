@@ -1,6 +1,6 @@
 /* Diário do Vale — a field ledger, not a dashboard. */
 :root{color-scheme:light;--paper:#e8e7da;--surface:#f7f6ed;--surface-raised:#fffef7;--ink:#172d2e;--muted:#607372;--line:#aebbb4;--water:#d8e6df;--water-deep:#285f62;--brass:#9d651e;--focus:#8c4d0d;--action-bg:#183f41;--action-fg:#f7f4e7;--error:#9c3029;--font-ui:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--font-display:ui-rounded,"Avenir Next","Avenir",var(--font-ui);font-family:var(--font-ui)}
-:root[data-theme="dark"]{color-scheme:dark;--paper:#0d2225;--surface:#102a2d;--surface-raised:#153438;--ink:#e8e9dd;--muted:#9fb1aa;--line:#496b69;--water:#123a3d;--water-deep:#82c4bd;--brass:#deb45e;--focus:#f2c56b;--action-bg:#dfb45d;--action-fg:#102526;--error:#ffaaa0}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#000000;--surface:#080808;--surface-raised:#101010;--ink:#e2e2e2;--muted:#999999;--line:#292929;--water:#101319;--water-deep:#87afda;--brass:#87afda;--focus:#a6c9ef;--action-bg:#87afda;--action-fg:#080808;--error:#ffaaa0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{min-width:320px;margin:0;background:var(--paper);color:var(--ink)}button,input,select{font:inherit}a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}button{cursor:pointer}button:disabled{cursor:not-allowed}.skip-link{position:fixed;z-index:10;left:1rem;top:-4rem;padding:.65rem .85rem;background:var(--action-bg);color:var(--action-fg)}.skip-link:focus{top:1rem}:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .brand{display:inline-flex;align-items:center;gap:.65rem;color:var(--ink);font-family:var(--font-display);font-size:1.16rem;font-weight:700;letter-spacing:-.025em;text-decoration:none}.theme-toggle{display:inline-grid;width:34px;height:34px;place-items:center;padding:0;color:var(--ink);border:1px solid var(--line);background:transparent}.theme-toggle:hover{color:var(--brass);border-color:var(--brass)}.theme-icon{font-size:1.1rem;line-height:1}
 .catalog-page{max-width:1320px;margin:auto;padding:clamp(2.5rem,6vw,5.25rem) clamp(1.25rem,4vw,4rem) 5rem}.catalog-intro{max-width:780px;margin-bottom:clamp(2.8rem,6vw,5rem)}.catalog-intro::before{display:block;width:44px;height:4px;margin-bottom:1.25rem;background:var(--brass);content:""}.catalog-intro h1,.save-import h2,.progress-panel h2,.season-heading h2{font-family:var(--font-display);font-weight:700}.catalog-intro h1{max-width:12ch;margin:0;font-size:clamp(3.1rem,7vw,5.8rem);letter-spacing:-.065em;line-height:.92}.catalog-intro>p{max-width:68ch;margin:1.6rem 0 0;color:var(--muted);font-size:1.04rem;line-height:1.7}
@@ -56,7 +56,10 @@
 .save-status{margin:.65rem 0 .4rem;font-size:.85rem;font-weight:750;line-height:1.4}
 .sidebar-help{margin:0 0 1rem;color:var(--muted);font-size:.8rem;line-height:1.5}
 .save-open{width:100%;min-height:42px;padding:.6rem .7rem;color:var(--action-fg);background:var(--action-bg);border:1px solid var(--action-bg);font-size:.84rem;font-weight:750}
-.side-nav .theme-toggle{display:flex;align-items:center;gap:.7rem;width:100%;min-height:44px;height:auto;margin-top:auto;padding:.6rem .75rem;text-align:left;font-size:.85rem}
+.side-nav .theme-toggle{display:grid;place-items:center;width:44px;height:44px;margin-top:auto;padding:0}.theme-icon{display:block;width:24px;height:24px;image-rendering:pixelated}
+:root[data-theme="dark"] .side-nav{background:var(--paper)}
+:root[data-theme="dark"] .progress-panel{background:var(--surface)}
+:root[data-theme="dark"] .progress-panel::after{display:none}
 .catalog-page{max-width:1500px;margin-left:248px;margin-right:auto;padding-top:3rem}
 .collection-title{display:flex;align-items:center;gap:1.1rem}
 .collection-emblem{width:64px;height:72px;flex:none;image-rendering:pixelated;object-fit:contain}
